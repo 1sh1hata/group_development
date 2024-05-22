@@ -1,0 +1,4 @@
+C:\Users\tounichi\source\repos\hodumi\hodumi\x64\Debug\hodumi.vcxproj.AssemblyReference.cache
+C:\Users\tounichi\source\repos\hodumi\hodumi\x64\Debug\hodumi.MyForm.resources
+C:\Users\tounichi\source\repos\hodumi\hodumi\x64\Debug\hodumi.MyForm1.resources
+C:\Users\tounichi\source\repos\hodumi\hodumi\x64\Debug\hodumi.vcxproj.GenerateResource.cache
