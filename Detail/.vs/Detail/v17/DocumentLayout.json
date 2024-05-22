@@ -1,12 +1,70 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\tounichi\\Documents\\Visual Studio 2022\\Detail\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{851244B0-0B19-45DF-B3CF-B87BA1B538B8}|Detail\\Detail.vcxproj|C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form",
+      "RelativeMoniker": "D:0:0:{851244B0-0B19-45DF-B3CF-B87BA1B538B8}|Detail\\Detail.vcxproj|solutionrelative:Detail\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851244B0-0B19-45DF-B3CF-B87BA1B538B8}|Detail\\Detail.vcxproj|C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{851244B0-0B19-45DF-B3CF-B87BA1B538B8}|Detail\\Detail.vcxproj|solutionrelative:Detail\\MyForm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851244B0-0B19-45DF-B3CF-B87BA1B538B8}|Detail\\Detail.vcxproj|C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{851244B0-0B19-45DF-B3CF-B87BA1B538B8}|Detail\\Detail.vcxproj|solutionrelative:Detail\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyForm.h",
+              "DocumentMoniker": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.h",
+              "RelativeDocumentMoniker": "Detail\\MyForm.h",
+              "ToolTip": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.h",
+              "RelativeToolTip": "Detail\\MyForm.h",
+              "ViewState": "AQIAAGMAAAAAAAAAAAD4v5UBAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-22T00:50:51.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyForm.cpp",
+              "DocumentMoniker": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.cpp",
+              "RelativeDocumentMoniker": "Detail\\MyForm.cpp",
+              "ToolTip": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.cpp",
+              "RelativeToolTip": "Detail\\MyForm.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-22T00:48:08.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyForm.h [\u30C7\u30B6\u30A4\u30F3]",
+              "DocumentMoniker": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.h",
+              "RelativeDocumentMoniker": "Detail\\MyForm.h",
+              "ToolTip": "C:\\Users\\sendai\\Desktop\\group_development\\Detail\\Detail\\MyForm.h [\u30C7\u30B6\u30A4\u30F3]",
+              "RelativeToolTip": "Detail\\MyForm.h [\u30C7\u30B6\u30A4\u30F3]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-22T00:48:14.728Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
