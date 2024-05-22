@@ -60,6 +60,12 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ s_title;
 	private: System::Windows::Forms::Label^ ID;
 	private: System::Windows::Forms::Label^ title;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBox2;
 
 	protected:
 
@@ -125,6 +131,12 @@ namespace Hennsyuu {
 			this->s_title = (gcnew System::Windows::Forms::Label());
 			this->ID = (gcnew System::Windows::Forms::Label());
 			this->title = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// back
@@ -364,11 +376,71 @@ namespace Hennsyuu {
 			this->title->TabIndex = 25;
 			this->title->Text = L"スケジュール編集";
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label8->Location = System::Drawing::Point(250, 661);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(109, 23);
+			this->label8->TabIndex = 50;
+			this->label8->Text = L"ユーザー名";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label9->Location = System::Drawing::Point(250, 692);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(100, 23);
+			this->label9->TabIndex = 51;
+			this->label9->Text = L"パスワード";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(366, 668);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(15, 15);
+			this->label10->TabIndex = 52;
+			this->label10->Text = L"：";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(366, 700);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(15, 15);
+			this->label11->TabIndex = 53;
+			this->label11->Text = L"：";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(387, 661);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(313, 22);
+			this->textBox1->TabIndex = 54;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(387, 693);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(313, 22);
+			this->textBox2->TabIndex = 55;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(982, 753);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->back);
 			this->Controls->Add(this->logout);
 			this->Controls->Add(this->label7);
