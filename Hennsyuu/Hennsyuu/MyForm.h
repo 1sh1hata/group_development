@@ -44,7 +44,8 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ edit;
+	private: System::Windows::Forms::Button^ update;
+
 	private: System::Windows::Forms::TextBox^ textBox_memo;
 	private: System::Windows::Forms::TextBox^ textBox_assignee;
 	private: System::Windows::Forms::TextBox^ textBox_location;
@@ -60,6 +61,18 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ s_title;
 	private: System::Windows::Forms::Label^ ID;
 	private: System::Windows::Forms::Label^ title;
+	private: System::Windows::Forms::Label^ username;
+	private: System::Windows::Forms::Label^ password;
+
+
+
+
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ textBox_username;
+	private: System::Windows::Forms::TextBox^ textBox_password;
+
+
 
 	protected:
 
@@ -109,7 +122,7 @@ namespace Hennsyuu {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->edit = (gcnew System::Windows::Forms::Button());
+			this->update = (gcnew System::Windows::Forms::Button());
 			this->textBox_memo = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_assignee = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_location = (gcnew System::Windows::Forms::TextBox());
@@ -125,6 +138,12 @@ namespace Hennsyuu {
 			this->s_title = (gcnew System::Windows::Forms::Label());
 			this->ID = (gcnew System::Windows::Forms::Label());
 			this->title = (gcnew System::Windows::Forms::Label());
+			this->username = (gcnew System::Windows::Forms::Label());
+			this->password = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->textBox_username = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_password = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// back
@@ -214,17 +233,17 @@ namespace Hennsyuu {
 			this->label1->TabIndex = 41;
 			this->label1->Text = L"：";
 			// 
-			// edit
+			// update
 			// 
-			this->edit->BackColor = System::Drawing::Color::Yellow;
-			this->edit->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->update->BackColor = System::Drawing::Color::Yellow;
+			this->update->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->edit->Location = System::Drawing::Point(794, 650);
-			this->edit->Name = L"edit";
-			this->edit->Size = System::Drawing::Size(135, 65);
-			this->edit->TabIndex = 40;
-			this->edit->Text = L"更新";
-			this->edit->UseVisualStyleBackColor = false;
+			this->update->Location = System::Drawing::Point(794, 650);
+			this->update->Name = L"update";
+			this->update->Size = System::Drawing::Size(135, 65);
+			this->update->TabIndex = 40;
+			this->update->Text = L"更新";
+			this->update->UseVisualStyleBackColor = false;
 			// 
 			// textBox_memo
 			// 
@@ -364,11 +383,71 @@ namespace Hennsyuu {
 			this->title->TabIndex = 25;
 			this->title->Text = L"スケジュール編集";
 			// 
+			// username
+			// 
+			this->username->AutoSize = true;
+			this->username->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->username->Location = System::Drawing::Point(250, 661);
+			this->username->Name = L"username";
+			this->username->Size = System::Drawing::Size(109, 23);
+			this->username->TabIndex = 50;
+			this->username->Text = L"ユーザー名";
+			// 
+			// password
+			// 
+			this->password->AutoSize = true;
+			this->password->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->password->Location = System::Drawing::Point(250, 692);
+			this->password->Name = L"password";
+			this->password->Size = System::Drawing::Size(100, 23);
+			this->password->TabIndex = 51;
+			this->password->Text = L"パスワード";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(366, 668);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(15, 15);
+			this->label10->TabIndex = 52;
+			this->label10->Text = L"：";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(366, 700);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(15, 15);
+			this->label11->TabIndex = 53;
+			this->label11->Text = L"：";
+			// 
+			// textBox_username
+			// 
+			this->textBox_username->Location = System::Drawing::Point(387, 661);
+			this->textBox_username->Name = L"textBox_username";
+			this->textBox_username->Size = System::Drawing::Size(313, 22);
+			this->textBox_username->TabIndex = 54;
+			// 
+			// textBox_password
+			// 
+			this->textBox_password->Location = System::Drawing::Point(387, 693);
+			this->textBox_password->Name = L"textBox_password";
+			this->textBox_password->Size = System::Drawing::Size(313, 22);
+			this->textBox_password->TabIndex = 55;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(982, 753);
+			this->Controls->Add(this->textBox_password);
+			this->Controls->Add(this->textBox_username);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->password);
+			this->Controls->Add(this->username);
 			this->Controls->Add(this->back);
 			this->Controls->Add(this->logout);
 			this->Controls->Add(this->label7);
@@ -378,7 +457,7 @@ namespace Hennsyuu {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->edit);
+			this->Controls->Add(this->update);
 			this->Controls->Add(this->textBox_memo);
 			this->Controls->Add(this->textBox_assignee);
 			this->Controls->Add(this->textBox_location);
