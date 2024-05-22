@@ -375,6 +375,7 @@ namespace Hennsyuu {
 			// title
 			// 
 			this->title->AutoSize = true;
+			this->title->BackColor = System::Drawing::SystemColors::Control;
 			this->title->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
 			this->title->Location = System::Drawing::Point(53, 45);
@@ -441,6 +442,7 @@ namespace Hennsyuu {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(982, 753);
 			this->Controls->Add(this->textBox_password);
 			this->Controls->Add(this->textBox_username);
