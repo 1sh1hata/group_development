@@ -1,0 +1,6 @@
+﻿  MyForm.cpp
+  MyForm1.cpp
+  コードを生成中...
+  MyForm.obj : MSIL モジュールが見つかりました。MSIL ではインクリメンタル リンクは無効化されています。フル リンクを行います
+x64\Debug\MyForm.obj : warning LNK4042: オブジェクトの指定が重複しています。余分なものは無視されます。
+  hodumi.vcxproj -> C:\Users\tounichi\source\repos\hodumi\x64\Debug\hodumi.exe
