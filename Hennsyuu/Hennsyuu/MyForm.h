@@ -65,8 +65,6 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ password;
 
 
-
-
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::TextBox^ textBox_username;
@@ -75,29 +73,6 @@ namespace Hennsyuu {
 
 
 	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	private:

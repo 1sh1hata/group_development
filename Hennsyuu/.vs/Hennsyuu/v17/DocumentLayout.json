@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form",
-      "RelativeMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|solutionrelative:Hennsyuu\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form"
+      "AbsoluteMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|solutionrelative:Hennsyuu\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|solutionrelative:Hennsyuu\\MyForm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form",
+      "RelativeMoniker": "D:0:0:{AF317DBF-CAF3-4B49-8D5D-5D932302BF26}|Hennsyuu\\Hennsyuu.vcxproj|solutionrelative:Hennsyuu\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MyForm.h",
+              "DocumentMoniker": "C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.h",
+              "RelativeDocumentMoniker": "Hennsyuu\\MyForm.h",
+              "ToolTip": "C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.h",
+              "RelativeToolTip": "Hennsyuu\\MyForm.h",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-22T07:02:41.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MyForm.h [\u30C7\u30B6\u30A4\u30F3]",
               "DocumentMoniker": "C:\\Users\\tounichi\\Desktop\\group_development\\Hennsyuu\\Hennsyuu\\MyForm.h",
               "RelativeDocumentMoniker": "Hennsyuu\\MyForm.h",
