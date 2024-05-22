@@ -34,6 +34,15 @@ namespace Login {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ label1;
+	protected:
+	private: System::Windows::Forms::Label^ username;
+	private: System::Windows::Forms::Label^ password;
+	private: System::Windows::Forms::TextBox^ textBox_name;
+	private: System::Windows::Forms::TextBox^ textBox_password;
+	private: System::Windows::Forms::Button^ button_login;
+	private: System::Windows::Forms::Button^ button_cancel;
+
 
 	private:
 		/// <summary>
@@ -48,12 +57,107 @@ namespace Login {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->username = (gcnew System::Windows::Forms::Label());
+			this->password = (gcnew System::Windows::Forms::Label());
+			this->textBox_name = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_password = (gcnew System::Windows::Forms::TextBox());
+			this->button_login = (gcnew System::Windows::Forms::Button());
+			this->button_cancel = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label1->Location = System::Drawing::Point(110, 54);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(558, 40);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"スケジュール管理システム　ログイン";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			// 
+			// username
+			// 
+			this->username->AutoSize = true;
+			this->username->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->username->Location = System::Drawing::Point(161, 180);
+			this->username->Name = L"username";
+			this->username->Size = System::Drawing::Size(109, 23);
+			this->username->TabIndex = 1;
+			this->username->Text = L"ユーザー名";
+			// 
+			// password
+			// 
+			this->password->AutoSize = true;
+			this->password->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->password->Location = System::Drawing::Point(170, 229);
+			this->password->Name = L"password";
+			this->password->Size = System::Drawing::Size(100, 23);
+			this->password->TabIndex = 2;
+			this->password->Text = L"パスワード";
+			// 
+			// textBox_name
+			// 
+			this->textBox_name->Location = System::Drawing::Point(294, 180);
+			this->textBox_name->Name = L"textBox_name";
+			this->textBox_name->Size = System::Drawing::Size(265, 22);
+			this->textBox_name->TabIndex = 3;
+			// 
+			// textBox_password
+			// 
+			this->textBox_password->Location = System::Drawing::Point(294, 230);
+			this->textBox_password->Name = L"textBox_password";
+			this->textBox_password->Size = System::Drawing::Size(265, 22);
+			this->textBox_password->TabIndex = 4;
+			// 
+			// button_login
+			// 
+			this->button_login->BackColor = System::Drawing::Color::Yellow;
+			this->button_login->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->button_login->Location = System::Drawing::Point(175, 360);
+			this->button_login->Name = L"button_login";
+			this->button_login->Size = System::Drawing::Size(146, 43);
+			this->button_login->TabIndex = 5;
+			this->button_login->Text = L"ログイン";
+			this->button_login->UseVisualStyleBackColor = false;
+			// 
+			// button_cancel
+			// 
+			this->button_cancel->BackColor = System::Drawing::SystemColors::Control;
+			this->button_cancel->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->button_cancel->Location = System::Drawing::Point(423, 360);
+			this->button_cancel->Name = L"button_cancel";
+			this->button_cancel->Size = System::Drawing::Size(146, 43);
+			this->button_cancel->TabIndex = 6;
+			this->button_cancel->Text = L"キャンセル";
+			this->button_cancel->UseVisualStyleBackColor = false;
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(782, 453);
+			this->Controls->Add(this->button_cancel);
+			this->Controls->Add(this->button_login);
+			this->Controls->Add(this->textBox_password);
+			this->Controls->Add(this->textBox_name);
+			this->Controls->Add(this->password);
+			this->Controls->Add(this->username);
+			this->Controls->Add(this->label1);
+			this->Name = L"MyForm";
+			this->Text = L"ログイン";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
 		}
 #pragma endregion
-	};
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
