@@ -113,7 +113,7 @@ namespace Hennsyuu2 {
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e)
 	{
-		String^ path = "C:\\チーム開発演習\\schedule.csv";
+		String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
 		List<String^>^ titleList = gcnew List<String^>;
 		String^ n = "";
@@ -147,7 +147,7 @@ namespace Hennsyuu2 {
 		for each (DataGridViewCell ^ c in dataGridView1->SelectedCells)
 		{
 			key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
-
+			
 		}
 		MyForm1^ m1 = gcnew MyForm1(key);
 		m1->Show();

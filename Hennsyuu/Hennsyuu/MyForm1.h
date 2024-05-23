@@ -63,12 +63,19 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ update;
 	private: System::Windows::Forms::TextBox^ textBox_memo;
-	private: System::Windows::Forms::TextBox^ textBox_assignee;
-	private: System::Windows::Forms::TextBox^ textBox_location;
-	private: System::Windows::Forms::TextBox^ textBox_finish;
-	private: System::Windows::Forms::TextBox^ textBox_start;
-	private: System::Windows::Forms::TextBox^ textBox_title;
-	private: System::Windows::Forms::TextBox^ textBox_ID;
+	private: System::Windows::Forms::TextBox^ textBox6;
+
+	private: System::Windows::Forms::TextBox^ textBox5;
+
+	private: System::Windows::Forms::TextBox^ textBox4;
+
+	private: System::Windows::Forms::TextBox^ textBox3;
+
+
+	private: System::Windows::Forms::TextBox^ textBox2;
+
+	private: System::Windows::Forms::TextBox^ textBox1;
+
 	private: System::Windows::Forms::Label^ memo;
 	private: System::Windows::Forms::Label^ assignee;
 	private: System::Windows::Forms::Label^ location;
@@ -77,6 +84,8 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ s_title;
 	private: System::Windows::Forms::Label^ ID;
 	private: System::Windows::Forms::Label^ title;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 
 	protected:
 
@@ -111,12 +120,12 @@ namespace Hennsyuu {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->update = (gcnew System::Windows::Forms::Button());
 			this->textBox_memo = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_assignee = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_location = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_finish = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_start = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_title = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_ID = (gcnew System::Windows::Forms::TextBox());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->memo = (gcnew System::Windows::Forms::Label());
 			this->assignee = (gcnew System::Windows::Forms::Label());
 			this->location = (gcnew System::Windows::Forms::Label());
@@ -125,6 +134,9 @@ namespace Hennsyuu {
 			this->s_title = (gcnew System::Windows::Forms::Label());
 			this->ID = (gcnew System::Windows::Forms::Label());
 			this->title = (gcnew System::Windows::Forms::Label());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox_password
@@ -302,47 +314,47 @@ namespace Hennsyuu {
 			this->textBox_memo->Size = System::Drawing::Size(350, 133);
 			this->textBox_memo->TabIndex = 70;
 			// 
-			// textBox_assignee
+			// textBox6
 			// 
-			this->textBox_assignee->Location = System::Drawing::Point(350, 346);
-			this->textBox_assignee->Name = L"textBox_assignee";
-			this->textBox_assignee->Size = System::Drawing::Size(350, 22);
-			this->textBox_assignee->TabIndex = 69;
+			this->textBox6->Location = System::Drawing::Point(350, 346);
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->Size = System::Drawing::Size(350, 22);
+			this->textBox6->TabIndex = 69;
 			// 
-			// textBox_location
+			// textBox5
 			// 
-			this->textBox_location->Location = System::Drawing::Point(350, 305);
-			this->textBox_location->Name = L"textBox_location";
-			this->textBox_location->Size = System::Drawing::Size(350, 22);
-			this->textBox_location->TabIndex = 68;
+			this->textBox5->Location = System::Drawing::Point(350, 305);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(350, 22);
+			this->textBox5->TabIndex = 68;
 			// 
-			// textBox_finish
+			// textBox4
 			// 
-			this->textBox_finish->Location = System::Drawing::Point(350, 269);
-			this->textBox_finish->Name = L"textBox_finish";
-			this->textBox_finish->Size = System::Drawing::Size(350, 22);
-			this->textBox_finish->TabIndex = 67;
+			this->textBox4->Location = System::Drawing::Point(350, 269);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(350, 22);
+			this->textBox4->TabIndex = 67;
 			// 
-			// textBox_start
+			// textBox3
 			// 
-			this->textBox_start->Location = System::Drawing::Point(350, 230);
-			this->textBox_start->Name = L"textBox_start";
-			this->textBox_start->Size = System::Drawing::Size(350, 22);
-			this->textBox_start->TabIndex = 66;
+			this->textBox3->Location = System::Drawing::Point(350, 230);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(350, 22);
+			this->textBox3->TabIndex = 66;
 			// 
-			// textBox_title
+			// textBox2
 			// 
-			this->textBox_title->Location = System::Drawing::Point(350, 190);
-			this->textBox_title->Name = L"textBox_title";
-			this->textBox_title->Size = System::Drawing::Size(350, 22);
-			this->textBox_title->TabIndex = 65;
+			this->textBox2->Location = System::Drawing::Point(350, 190);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(350, 22);
+			this->textBox2->TabIndex = 65;
 			// 
-			// textBox_ID
+			// textBox1
 			// 
-			this->textBox_ID->Location = System::Drawing::Point(350, 148);
-			this->textBox_ID->Name = L"textBox_ID";
-			this->textBox_ID->Size = System::Drawing::Size(350, 22);
-			this->textBox_ID->TabIndex = 64;
+			this->textBox1->Location = System::Drawing::Point(350, 148);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(350, 22);
+			this->textBox1->TabIndex = 64;
 			// 
 			// memo
 			// 
@@ -441,12 +453,32 @@ namespace Hennsyuu {
 			this->title->TabIndex = 56;
 			this->title->Text = L"スケジュール編集";
 			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->Column1 });
+			this->dataGridView1->Location = System::Drawing::Point(105, 474);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->RowTemplate->Height = 24;
+			this->dataGridView1->Size = System::Drawing::Size(240, 150);
+			this->dataGridView1->TabIndex = 87;
+			this->dataGridView1->Visible = false;
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Column1";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 125;
+			// 
 			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
 			this->ClientSize = System::Drawing::Size(982, 753);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->textBox_password);
 			this->Controls->Add(this->textBox_username);
 			this->Controls->Add(this->label11);
@@ -464,12 +496,12 @@ namespace Hennsyuu {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->update);
 			this->Controls->Add(this->textBox_memo);
-			this->Controls->Add(this->textBox_assignee);
-			this->Controls->Add(this->textBox_location);
-			this->Controls->Add(this->textBox_finish);
-			this->Controls->Add(this->textBox_start);
-			this->Controls->Add(this->textBox_title);
-			this->Controls->Add(this->textBox_ID);
+			this->Controls->Add(this->textBox6);
+			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->memo);
 			this->Controls->Add(this->assignee);
 			this->Controls->Add(this->location);
@@ -480,19 +512,21 @@ namespace Hennsyuu {
 			this->Controls->Add(this->title);
 			this->Name = L"MyForm1";
 			this->Text = L"スケジュール編集";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 		//クラスの変数宣言
-		private: String^ keyVal;
-		private: int addNum = 3;
+		public: String^ keyVal = "1001";
+		private: int addNum = 0;
 
 
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		//	各自のCSVファイルのパスに変更してください
-		String^ path = "C:\\チーム開発演習\\schedule.csv";
+		//5月24日
+		String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
 		List<String^>^ keyList = gcnew List<String^>;
 		String^ n = "";
@@ -506,6 +540,7 @@ namespace Hennsyuu {
 				if (arr[0] == "END") break;
 				//keyとなる値から検索
 				if (arr[0] == keyVal) {
+					System::Diagnostics::Debug::WriteLine("リスト検索中");
 					//データの最大長を取得
 					int num = arr->Length;
 					//追加データがあるか判定
@@ -534,8 +569,11 @@ namespace Hennsyuu {
 		//----グリッドビューに追加している部分です。ここを、テキストボックスに代入するように変更する必要があります
 		//5月23日変更
 		for (int i = 0; i < keyList->Count; i++) {
+			dataGridView1->Rows->Add();
+			dataGridView1->Rows[dataGridView1->RowCount - 1]->Cells[0]->Value = keyList[i];
+			// TextBox1からTextBox6に値を設定
 			if (i < 6) {
-				Control^ c = this->Controls["TextBox" + (i + 1).ToString()];
+				Control^ c = this->Controls["textBox" + (i + 1).ToString()];
 				if (c != nullptr) {
 					TextBox^ tb = dynamic_cast<TextBox^>(c);
 					if (tb != nullptr) {
@@ -544,13 +582,13 @@ namespace Hennsyuu {
 				}
 			}
 		}
-
 		return System::Void();
-
 	}
+
 	private: System::Void update_Click(System::Object^ sender, System::EventArgs^ e) {
 		//----各自のパスにする
-		String^ path = "C:\\チーム開発演習\\schedule.csv";
+		//5月24日
+		String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
 		List<String^>^ bdArr = gcnew List<String^>;
 		try {
@@ -571,6 +609,8 @@ namespace Hennsyuu {
 					for (int j = 0; j < addNum; j++) {
 						afLine += arr[j] + sep;
 					}
+
+
 
 					bdArr->Add(afLine);
 				}
