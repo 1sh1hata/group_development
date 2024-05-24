@@ -32,7 +32,6 @@ namespace Hennsyuu {
 			//TODO: ここにコンストラクター コードを追加します
 			//
 			keyVal = key;
-			System::Diagnostics::Debug::WriteLine("コンストラクタ起動");
 		}
 
 	protected:
@@ -573,28 +572,23 @@ void AddToCSV(array<String^> ^ texts)
 		//headerを飛ばす
 		bdArr->Add(sr->ReadLine());
 		while (sr->Peek() > 0) {//読み取り文字がある間は回し続ける
-			String^ line = sr->ReadLine();
-			cli::array<String^>^ arr = line->Split(',');
+			String^ line = sr->ReadLine();  //一行ずつ読み取り
+			cli::array<String^>^ arr = line->Split(','); //読み取った文字列を、,　部分で分割
 			if (arr[0] == "END") {
 				bdArr->Add(line);
 				break;
 			}
 			//keyとなる値から検索
-			if (arr[0] == keyVal) {
-				cli::array<String^>^ arr = line->Split(',');
-				String^ afLine = "";
-				String^ sep = ",";
-				for (int j = 0; j < 9; j++) {
-					afLine += texts[j] + sep;
+			if (arr[0] == keyVal) {  //行の１番目（ID）が、渡されたKeyと一緒の場合
+				String^ afLine = ""; //空の文字列
+				String^ sep = ",";  //コンマ
+				for (int j = 0; j < 9; j++) {  
+					afLine += texts[j] + sep;  //本来であれば、空の文字列に合致する1行+コンマを、項目ごとに代入していた
 				}
-				for (int n = 0; n < dataGridView1->RowCount; n++) {
-					if (n == dataGridView1->RowCount - 1) sep = "";
-					afLine += dataGridView1->Rows[n]->Cells[0]->Value->ToString() + sep;
-				}
-				bdArr->Add(afLine);
+				bdArr->Add(afLine);  //リストに、afLineをいれる。合致した場合は
 			}
 			else {
-				bdArr->Add(line);
+				bdArr->Add(line);  //そうでない場合は、読み取った１行を、丸ごと入れる
 			}
 		}
 	}

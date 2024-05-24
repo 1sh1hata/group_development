@@ -79,7 +79,7 @@ namespace Hennsyuu {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ key = "1003";
+		String^ key = "1002";
 		
 		MyForm1^ m1 = gcnew MyForm1(key);
 		m1->Show();
