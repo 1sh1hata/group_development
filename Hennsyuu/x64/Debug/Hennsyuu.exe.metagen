@@ -1,5 +1,6 @@
   Hennsyuu.itirann.resources - Embedded, ContainedInManifestFile, 
   Hennsyuu.MyForm1.resources - Embedded, ContainedInManifestFile, 
+  Hennsyuu.send.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly Hennsyuu, Version=0.0.*, Culture=ロケールに依存しない言語 (ロケールに依存しない国): 
 	hash=SHA1, flags=PublicKey
@@ -22,5 +23,8 @@ Class Hennsyuu.MyForm1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   Fields:
     System.String keyVal : Public
 Class Hennsyuu2.itirann: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Hennsyuu.send: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

@@ -31,7 +31,8 @@ namespace Hennsyuu {
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
-			keyVal = "1001";
+			keyVal = key;
+			System::Diagnostics::Debug::WriteLine("コンストラクタ起動");
 		}
 
 	protected:
@@ -45,13 +46,13 @@ namespace Hennsyuu {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox_password;
+
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox_username;
-	private: System::Windows::Forms::Label^ label11;
-	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::Label^ password;
-	private: System::Windows::Forms::Label^ username;
+
+
+
+
+
 	private: System::Windows::Forms::Button^ back;
 	private: System::Windows::Forms::Button^ logout;
 	private: System::Windows::Forms::Label^ label7;
@@ -62,7 +63,8 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ update;
-	private: System::Windows::Forms::TextBox^ textBox_memo;
+	private: System::Windows::Forms::TextBox^ textBox7;
+
 	private: System::Windows::Forms::TextBox^ textBox6;
 
 	private: System::Windows::Forms::TextBox^ textBox5;
@@ -86,6 +88,9 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ title;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
 
 	protected:
 
@@ -103,12 +108,6 @@ namespace Hennsyuu {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox_password = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_username = (gcnew System::Windows::Forms::TextBox());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->password = (gcnew System::Windows::Forms::Label());
-			this->username = (gcnew System::Windows::Forms::Label());
 			this->back = (gcnew System::Windows::Forms::Button());
 			this->logout = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -119,7 +118,7 @@ namespace Hennsyuu {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->update = (gcnew System::Windows::Forms::Button());
-			this->textBox_memo = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
@@ -136,66 +135,11 @@ namespace Hennsyuu {
 			this->title = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// textBox_password
-			// 
-			this->textBox_password->Location = System::Drawing::Point(350, 624);
-			this->textBox_password->Name = L"textBox_password";
-			this->textBox_password->Size = System::Drawing::Size(350, 22);
-			this->textBox_password->TabIndex = 86;
-			// 
-			// textBox_username
-			// 
-			this->textBox_username->Location = System::Drawing::Point(350, 588);
-			this->textBox_username->Name = L"textBox_username";
-			this->textBox_username->Size = System::Drawing::Size(350, 22);
-			this->textBox_username->TabIndex = 85;
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->ForeColor = System::Drawing::Color::Transparent;
-			this->label11->Location = System::Drawing::Point(329, 631);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(15, 15);
-			this->label11->TabIndex = 84;
-			this->label11->Text = L"：";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->ForeColor = System::Drawing::Color::Transparent;
-			this->label10->Location = System::Drawing::Point(330, 595);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(15, 15);
-			this->label10->TabIndex = 83;
-			this->label10->Text = L"：";
-			// 
-			// password
-			// 
-			this->password->AutoSize = true;
-			this->password->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(128)));
-			this->password->ForeColor = System::Drawing::Color::Transparent;
-			this->password->Location = System::Drawing::Point(206, 620);
-			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(105, 23);
-			this->password->TabIndex = 82;
-			this->password->Text = L"パスワード";
-			// 
-			// username
-			// 
-			this->username->AutoSize = true;
-			this->username->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(128)));
-			this->username->ForeColor = System::Drawing::Color::Transparent;
-			this->username->Location = System::Drawing::Point(199, 587);
-			this->username->Name = L"username";
-			this->username->Size = System::Drawing::Size(114, 23);
-			this->username->TabIndex = 81;
-			this->username->Text = L"ユーザー名";
 			// 
 			// back
 			// 
@@ -209,6 +153,7 @@ namespace Hennsyuu {
 			this->back->TabIndex = 80;
 			this->back->Text = L"戻る";
 			this->back->UseVisualStyleBackColor = false;
+			this->back->Click += gcnew System::EventHandler(this, &MyForm1::back_Click);
 			// 
 			// logout
 			// 
@@ -222,12 +167,13 @@ namespace Hennsyuu {
 			this->logout->TabIndex = 79;
 			this->logout->Text = L"ログアウト";
 			this->logout->UseVisualStyleBackColor = false;
+			this->logout->Click += gcnew System::EventHandler(this, &MyForm1::logout_Click);
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
 			this->label7->ForeColor = System::Drawing::Color::Transparent;
-			this->label7->Location = System::Drawing::Point(329, 396);
+			this->label7->Location = System::Drawing::Point(330, 436);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(15, 15);
 			this->label7->TabIndex = 78;
@@ -305,14 +251,15 @@ namespace Hennsyuu {
 			this->update->TabIndex = 71;
 			this->update->Text = L"更新";
 			this->update->UseVisualStyleBackColor = false;
+			this->update->Click += gcnew System::EventHandler(this, &MyForm1::update_Click_1);
 			// 
-			// textBox_memo
+			// textBox7
 			// 
-			this->textBox_memo->Location = System::Drawing::Point(350, 392);
-			this->textBox_memo->Multiline = true;
-			this->textBox_memo->Name = L"textBox_memo";
-			this->textBox_memo->Size = System::Drawing::Size(350, 133);
-			this->textBox_memo->TabIndex = 70;
+			this->textBox7->Location = System::Drawing::Point(350, 432);
+			this->textBox7->Multiline = true;
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(350, 133);
+			this->textBox7->TabIndex = 70;
 			// 
 			// textBox6
 			// 
@@ -351,7 +298,8 @@ namespace Hennsyuu {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(350, 148);
+			this->textBox1->Enabled = false;
+			this->textBox1->Location = System::Drawing::Point(350, 149);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(350, 22);
 			this->textBox1->TabIndex = 64;
@@ -362,7 +310,7 @@ namespace Hennsyuu {
 			this->memo->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
 			this->memo->ForeColor = System::Drawing::Color::Transparent;
-			this->memo->Location = System::Drawing::Point(265, 388);
+			this->memo->Location = System::Drawing::Point(266, 428);
 			this->memo->Name = L"memo";
 			this->memo->Size = System::Drawing::Size(45, 23);
 			this->memo->TabIndex = 63;
@@ -455,15 +403,16 @@ namespace Hennsyuu {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->Column1 });
-			this->dataGridView1->Location = System::Drawing::Point(105, 474);
+			this->dataGridView1->Location = System::Drawing::Point(720, 102);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(240, 150);
 			this->dataGridView1->TabIndex = 87;
-			this->dataGridView1->Visible = false;
 			// 
 			// Column1
 			// 
@@ -472,19 +421,46 @@ namespace Hennsyuu {
 			this->Column1->Name = L"Column1";
 			this->Column1->Width = 125;
 			// 
+			// textBox8
+			// 
+			this->textBox8->Location = System::Drawing::Point(350, 391);
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(350, 22);
+			this->textBox8->TabIndex = 88;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->ForeColor = System::Drawing::Color::Transparent;
+			this->label8->Location = System::Drawing::Point(330, 394);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(15, 15);
+			this->label8->TabIndex = 90;
+			this->label8->Text = L"：";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label9->ForeColor = System::Drawing::Color::Transparent;
+			this->label9->Location = System::Drawing::Point(229, 387);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(82, 23);
+			this->label9->TabIndex = 89;
+			this->label9->Text = L"重要度";
+			this->label9->Click += gcnew System::EventHandler(this, &MyForm1::label9_Click);
+			// 
 			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
 			this->ClientSize = System::Drawing::Size(982, 753);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->textBox_password);
-			this->Controls->Add(this->textBox_username);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->label10);
-			this->Controls->Add(this->password);
-			this->Controls->Add(this->username);
 			this->Controls->Add(this->back);
 			this->Controls->Add(this->logout);
 			this->Controls->Add(this->label7);
@@ -495,7 +471,7 @@ namespace Hennsyuu {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->update);
-			this->Controls->Add(this->textBox_memo);
+			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
@@ -512,6 +488,7 @@ namespace Hennsyuu {
 			this->Controls->Add(this->title);
 			this->Name = L"MyForm1";
 			this->Text = L"スケジュール編集";
+			this->Load += gcnew System::EventHandler(this, &MyForm1::MyForm1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -519,14 +496,14 @@ namespace Hennsyuu {
 		}
 #pragma endregion
 		//クラスの変数宣言
-		public: String^ keyVal = "1001";
+		public: String^ keyVal;
 		private: int addNum = 0;
 
-
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
+		System::Diagnostics::Debug::WriteLine(keyVal);
 		//	各自のCSVファイルのパスに変更してください
 		//5月24日
-		String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
+		String^ path = "C:\\Users\\sendai\\Desktop\\csv\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
 		List<String^>^ keyList = gcnew List<String^>;
 		String^ n = "";
@@ -557,6 +534,7 @@ namespace Hennsyuu {
 						}
 					}
 				}
+				System::Diagnostics::Debug::WriteLine("合致しないよ");
 			}
 		}
 		catch (Exception^ e) {
@@ -566,13 +544,13 @@ namespace Hennsyuu {
 			sr->Close();
 		}
 
-		//----グリッドビューに追加している部分です。ここを、テキストボックスに代入するように変更する必要があります
+		//----テキストボックスに代入している部分
 		//5月23日変更
 		for (int i = 0; i < keyList->Count; i++) {
 			dataGridView1->Rows->Add();
 			dataGridView1->Rows[dataGridView1->RowCount - 1]->Cells[0]->Value = keyList[i];
 			// TextBox1からTextBox6に値を設定
-			if (i < 6) {
+			if (i < 8) {
 				Control^ c = this->Controls["textBox" + (i + 1).ToString()];
 				if (c != nullptr) {
 					TextBox^ tb = dynamic_cast<TextBox^>(c);
@@ -584,62 +562,98 @@ namespace Hennsyuu {
 		}
 		return System::Void();
 	}
-
-	private: System::Void update_Click(System::Object^ sender, System::EventArgs^ e) {
-		//----各自のパスにする
-		//5月24日
-		String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
-		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
-		List<String^>^ bdArr = gcnew List<String^>;
-		try {
-			//headerを飛ばす
-			bdArr->Add(sr->ReadLine());
-			while (sr->Peek() > 0) {
-				String^ line = sr->ReadLine();
+		   
+void AddToCSV(array<String^> ^ texts)
+{
+	//追加するCSVのパス
+	String^ path = "C:\\Users\\sendai\\Desktop\\csv\\schedule.csv";
+	StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+	List<String^>^ bdArr = gcnew List<String^>;
+	try {
+		//headerを飛ばす
+		bdArr->Add(sr->ReadLine());
+		while (sr->Peek() > 0) {//読み取り文字がある間は回し続ける
+			String^ line = sr->ReadLine();
+			cli::array<String^>^ arr = line->Split(',');
+			if (arr[0] == "END") {
+				bdArr->Add(line);
+				break;
+			}
+			//keyとなる値から検索
+			if (arr[0] == keyVal) {
 				cli::array<String^>^ arr = line->Split(',');
-				if (arr[0] == "END") {
-					bdArr->Add(line);
-					break;
+				String^ afLine = "";
+				String^ sep = ",";
+				for (int j = 0; j < 9; j++) {
+					afLine += texts[j] + sep;
 				}
-				//keyとなる値から検索
-				if (arr[0] == keyVal) {
-					cli::array<String^>^ arr = line->Split(',');
-					String^ afLine = "";
-					String^ sep = ",";
-					for (int j = 0; j < addNum; j++) {
-						afLine += arr[j] + sep;
-					}
-
-
-
-					bdArr->Add(afLine);
+				for (int n = 0; n < dataGridView1->RowCount; n++) {
+					if (n == dataGridView1->RowCount - 1) sep = "";
+					afLine += dataGridView1->Rows[n]->Cells[0]->Value->ToString() + sep;
 				}
-				else {
-					bdArr->Add(line);
-				}
+				bdArr->Add(afLine);
+			}
+			else {
+				bdArr->Add(line);
 			}
 		}
-		catch (Exception^ e) {
-			MessageBox::Show(e->ToString());
-		}
-		finally {
-			sr->Close();
-		}
-		StreamWriter^ sw = gcnew StreamWriter(path, false, Encoding::UTF8);
-		try {
-			for (int i = 0; i < bdArr->Count; i++) {
-				String^ sep = "\n";
-				if (i == bdArr->Count - 1) sep = "";
-				sw->Write(bdArr[i] + sep);
-			}
-		}
-		catch (Exception^ e) {
-			MessageBox::Show(e->ToString());
-		}
-		finally {
-			sw->Close();
-		}
-		return System::Void();
 	}
-	};
+	catch (Exception^ e) {
+		MessageBox::Show(e->ToString());
+	}
+	finally {
+		sr->Close();
+	}
+	try {
+		//CSVを追記モードで開く
+		StreamWriter^ sw = gcnew StreamWriter(path, false, Encoding::UTF8);
+		//テキストをファイルに書き込む
+		for (int i = 0; i < bdArr->Count; i++) {
+			String^ sep = "\n";
+			if (i == bdArr->Count - 1) sep = "";
+			sw->Write(bdArr[i] + sep,false);
+		}
+		//ファイルを閉じる
+		sw->Close();
+	}
+	catch (Exception^ e)
+	{
+		//エラー処理
+		Console::WriteLine("エラー：" + e->Message);
+	}	
+	return System::Void();
+}
+
+private: System::Void update_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//テキストボックスから入力
+	array<String^>^ inputTexts = gcnew array<String^>(9);
+	inputTexts[0] = textBox1->Text;
+	inputTexts[1] = textBox2->Text;
+	inputTexts[2] = textBox3->Text;
+	inputTexts[3] = textBox4->Text;
+	inputTexts[4] = textBox5->Text;
+	inputTexts[5] = textBox6->Text;
+	inputTexts[6] = textBox7->Text;
+	inputTexts[7] = textBox8->Text;
+	inputTexts[8] = "0"; // 9列目にはデフォルトで0を設定
+	// 未入力の項目があるかチェック
+	for (int i = 0; i < 8; i++) {
+		if (String::IsNullOrEmpty(inputTexts[i])) {
+			MessageBox::Show("TextBox" + (i + 1) + "が未入力です。");
+			return;
+		}
+	}
+	//CSVファイルに追加
+	AddToCSV(inputTexts);
+	this->Close();
+}
+private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void back_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+};
 }

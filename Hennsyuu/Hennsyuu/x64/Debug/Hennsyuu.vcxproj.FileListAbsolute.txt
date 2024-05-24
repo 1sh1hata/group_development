@@ -2,3 +2,8 @@ C:\Users\tounichi\Desktop\group_development\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu
 C:\Users\tounichi\Desktop\group_development\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.vcxproj.GenerateResource.cache
 C:\Users\tounichi\Desktop\group_development\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.itirann.resources
 C:\Users\tounichi\Desktop\group_development\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.MyForm1.resources
+C:\Users\sendai\Desktop\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.vcxproj.AssemblyReference.cache
+C:\Users\sendai\Desktop\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.itirann.resources
+C:\Users\sendai\Desktop\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.MyForm1.resources
+C:\Users\sendai\Desktop\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.vcxproj.GenerateResource.cache
+C:\Users\sendai\Desktop\Hennsyuu\Hennsyuu\x64\Debug\Hennsyuu.send.resources

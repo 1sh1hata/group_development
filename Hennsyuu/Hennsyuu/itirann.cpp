@@ -7,10 +7,11 @@ using namespace System::IO;
 using namespace System::Text;
 using namespace System::Collections::Generic;
 
-[STAThreadAttribute]
+/* [STAThreadAttribute]
 
 int main() {
     Application::Run(gcnew itirann());
     return 0;
 }
+*/
 
