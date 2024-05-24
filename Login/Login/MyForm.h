@@ -1,4 +1,5 @@
 #pragma once
+#include "MyForm1.h"
 
 namespace Login {
 
@@ -8,6 +9,10 @@ namespace Login {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
+	using namespace System::Text;
+	using namespace System::Collections::Generic;
+
 
 	/// <summary>
 	/// MyForm の概要
@@ -43,6 +48,7 @@ namespace Login {
 	private: System::Windows::Forms::Button^ button_login;
 	private: System::Windows::Forms::Button^ button_cancel;
 	private: System::Windows::Forms::Label^ label2;
+
 
 
 
@@ -108,18 +114,22 @@ namespace Login {
 			// 
 			this->textBox_name->BackColor = System::Drawing::Color::AliceBlue;
 			this->textBox_name->Location = System::Drawing::Point(265, 187);
+			this->textBox_name->MaxLength = 254;
 			this->textBox_name->Name = L"textBox_name";
 			this->textBox_name->Size = System::Drawing::Size(300, 22);
 			this->textBox_name->TabIndex = 3;
+			this->textBox_name->Text = L"テストテストテスト";
 			// 
 			// textBox_password
 			// 
 			this->textBox_password->BackColor = System::Drawing::Color::AliceBlue;
 			this->textBox_password->Location = System::Drawing::Point(265, 237);
+			this->textBox_password->MaxLength = 16;
 			this->textBox_password->Name = L"textBox_password";
 			this->textBox_password->PasswordChar = '*';
 			this->textBox_password->Size = System::Drawing::Size(300, 22);
 			this->textBox_password->TabIndex = 4;
+			this->textBox_password->Text = L"000000";
 			// 
 			// button_login
 			// 
@@ -133,6 +143,7 @@ namespace Login {
 			this->button_login->TabIndex = 5;
 			this->button_login->Text = L"ログイン";
 			this->button_login->UseVisualStyleBackColor = false;
+			this->button_login->Click += gcnew System::EventHandler(this, &MyForm::button_login_Click);
 			// 
 			// button_cancel
 			// 
@@ -145,6 +156,7 @@ namespace Login {
 			this->button_cancel->TabIndex = 6;
 			this->button_cancel->Text = L"キャンセル";
 			this->button_cancel->UseVisualStyleBackColor = false;
+			this->button_cancel->Click += gcnew System::EventHandler(this, &MyForm::button_cancel_Click);
 			// 
 			// label2
 			// 
@@ -176,14 +188,72 @@ namespace Login {
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"ログイン";
+			this->Activated += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+private: String^ userRole;
+	     String^ license = "1";
+
+private: System::Void clean_TextBox() {
+		textBox_name->Clear();
+		textBox_password->Clear();
 	}
+
+private: System::Boolean login() {
+	String^ username = textBox_name->Text;
+	String^ password = textBox_password->Text;
+
+	String^ path = "C:\\Users\\sendai\\Desktop\\csv\\users.csv";
+	StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+	String^ line;
+
+	while((line = sr->ReadLine()) != nullptr) {
+		array<String^>^ parts = line->Split(',');	
+		if (parts[1] == username && parts[2] == password) {
+			userRole = parts[3];
+			System::Diagnostics::Debug::WriteLine(userRole);
+			return true;
+		}
+		else {
+		
+		}
+	}
+	return false;
+}
+
+	
+
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	this->clean_TextBox();
+	
+}
+private: System::Void button_cancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	textBox_name->Clear();
+	textBox_password->Clear();
+}
+private: System::Void button_login_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (userRole == license) {
+		System::Diagnostics::Debug::WriteLine("管理者権限でログイン");
+	}
+	else {
+		System::Diagnostics::Debug::WriteLine("通常ログイン");
+	}
+
+	if (login()) {
+		MyForm1^ nextPage = gcnew MyForm1();
+		nextPage->ShowDialog();
+	}
+	else {
+		MessageBox::Show("ユーザー名もしくはパスワードが違います","ログイン失敗", MessageBoxButtons::OK);
+	}
 }
 };
 }

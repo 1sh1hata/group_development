@@ -1,5 +1,4 @@
 #include "MyForm.h"
-
 using namespace Login;
 
 [STAThreadAttribute]
