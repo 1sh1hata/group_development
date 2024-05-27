@@ -1,0 +1,6 @@
+C:\Users\tounichi\source\repos\god\god\x64\Debug\god.vcxproj.AssemblyReference.cache
+C:\Users\tounichi\source\repos\god\god\x64\Debug\god.all_user_show.resources
+C:\Users\tounichi\source\repos\god\god\x64\Debug\god.login.resources
+C:\Users\tounichi\source\repos\god\god\x64\Debug\god.show_detile.resources
+C:\Users\tounichi\source\repos\god\god\x64\Debug\god.vcxproj.GenerateResource.cache
+C:\Users\tounichi\source\repos\god\god\x64\Debug\god.Insert.resources

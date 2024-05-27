@@ -1,6 +1,13 @@
 ﻿  MyForm.cpp
-  MyForm1.cpp
-  コードを生成中...
   MyForm.obj : MSIL モジュールが見つかりました。MSIL ではインクリメンタル リンクは無効化されています。フル リンクを行います
-x64\Debug\MyForm.obj : warning LNK4042: オブジェクトの指定が重複しています。余分なものは無視されます。
-  hodumi.vcxproj -> C:\Users\tounichi\source\repos\hodumi\x64\Debug\hodumi.exe
+MyForm.obj : error LNK2005: main は既に MyForm.obj で定義されています。
+MyForm.obj : error LNK2005: "int __cdecl main(void)" (?main@@$$HYAHXZ) は既に MyForm.obj で定義されています。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (801311D7) : 重複する型 (hodumi.MyForm1) でフィールドの数が異なります: (0x02000003)。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (80131187) : 重複する型に適合しないメソッド宣言があります (型: hodumi2.MyForm; メソッド: SearchButton_Click): (0x06000013)。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (801311D6) : 重複する型 (hodumi2.MyForm) でメソッドの数が異なります: (0x02000004)。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (80131188) : 重複する型に、適合しないフィールド宣言があります (型: hodumi2.MyForm; フィールド: TitleTextBox): (0x0400000d)。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (80131188) : 重複する型に、適合しないフィールド宣言があります (型: hodumi2.MyForm; フィールド: St_dayTextBox): (0x0400000e)。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (80131188) : 重複する型に、適合しないフィールド宣言があります (型: hodumi2.MyForm; フィールド: SearchButton): (0x0400000f)。
+MyForm.obj : error LNK2022: メタデータの操作に失敗しました (801311D7) : 重複する型 (hodumi2.MyForm) でフィールドの数が異なります: (0x02000004)。
+MyForm1.obj : error LNK2022: メタデータの操作に失敗しました (801311D7) : 重複する型 (hodumi.MyForm1) でフィールドの数が異なります: (0x02000003)。
+LINK : fatal error LNK1255: メタデータエラーのためにリンクに失敗しました。
