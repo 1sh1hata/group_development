@@ -62,15 +62,16 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ update;
-	private: System::Windows::Forms::TextBox^ textBox7;
+	private: System::Windows::Forms::TextBox^ textBox8;
+
 
 	private: System::Windows::Forms::TextBox^ textBox6;
 
 	private: System::Windows::Forms::TextBox^ textBox5;
 
-	private: System::Windows::Forms::TextBox^ textBox4;
 
-	private: System::Windows::Forms::TextBox^ textBox3;
+
+
 
 
 	private: System::Windows::Forms::TextBox^ textBox2;
@@ -87,9 +88,23 @@ namespace Hennsyuu {
 	private: System::Windows::Forms::Label^ title;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::TextBox^ textBox7;
+
+
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::DateTimePicker^ datePicker1;
+
+	private: System::Windows::Forms::DateTimePicker^ datePicker2;
+	private: System::Windows::Forms::ComboBox^ TimePicker1;
+	private: System::Windows::Forms::ComboBox^ TimePicker2;
+
+
+
+
+
+
+
 
 	protected:
 
@@ -98,7 +113,7 @@ namespace Hennsyuu {
 		/// <summary>
 		/// 必要なデザイナー変数です。
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -117,11 +132,9 @@ namespace Hennsyuu {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->update = (gcnew System::Windows::Forms::Button());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->memo = (gcnew System::Windows::Forms::Label());
@@ -134,9 +147,13 @@ namespace Hennsyuu {
 			this->title = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->datePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->datePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->TimePicker1 = (gcnew System::Windows::Forms::ComboBox());
+			this->TimePicker2 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -252,13 +269,13 @@ namespace Hennsyuu {
 			this->update->UseVisualStyleBackColor = false;
 			this->update->Click += gcnew System::EventHandler(this, &MyForm1::update_Click_1);
 			// 
-			// textBox7
+			// textBox8
 			// 
-			this->textBox7->Location = System::Drawing::Point(350, 432);
-			this->textBox7->Multiline = true;
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(350, 133);
-			this->textBox7->TabIndex = 70;
+			this->textBox8->Location = System::Drawing::Point(350, 432);
+			this->textBox8->Multiline = true;
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(350, 133);
+			this->textBox8->TabIndex = 70;
 			// 
 			// textBox6
 			// 
@@ -273,20 +290,6 @@ namespace Hennsyuu {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(350, 22);
 			this->textBox5->TabIndex = 68;
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(350, 269);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(350, 22);
-			this->textBox4->TabIndex = 67;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(350, 230);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(350, 22);
-			this->textBox3->TabIndex = 66;
 			// 
 			// textBox2
 			// 
@@ -412,6 +415,7 @@ namespace Hennsyuu {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(240, 150);
 			this->dataGridView1->TabIndex = 87;
+			this->dataGridView1->Visible = false;
 			// 
 			// Column1
 			// 
@@ -420,12 +424,12 @@ namespace Hennsyuu {
 			this->Column1->Name = L"Column1";
 			this->Column1->Width = 125;
 			// 
-			// textBox8
+			// textBox7
 			// 
-			this->textBox8->Location = System::Drawing::Point(350, 391);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(350, 22);
-			this->textBox8->TabIndex = 88;
+			this->textBox7->Location = System::Drawing::Point(350, 391);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(350, 22);
+			this->textBox7->TabIndex = 88;
 			// 
 			// label8
 			// 
@@ -450,15 +454,65 @@ namespace Hennsyuu {
 			this->label9->Text = L"重要度";
 			this->label9->Click += gcnew System::EventHandler(this, &MyForm1::label9_Click);
 			// 
+			// datePicker1
+			// 
+			this->datePicker1->Location = System::Drawing::Point(350, 228);
+			this->datePicker1->Name = L"datePicker1";
+			this->datePicker1->Size = System::Drawing::Size(177, 22);
+			this->datePicker1->TabIndex = 91;
+			// 
+			// datePicker2
+			// 
+			this->datePicker2->Location = System::Drawing::Point(350, 269);
+			this->datePicker2->Name = L"datePicker2";
+			this->datePicker2->Size = System::Drawing::Size(177, 22);
+			this->datePicker2->TabIndex = 93;
+			// 
+			// TimePicker1
+			// 
+			this->TimePicker1 = (gcnew System::Windows::Forms::ComboBox());
+			for (int i = 0; i < 24; i++)
+			{
+				for (int j = 0; j < 60; j += 1)
+				{
+					this->TimePicker1->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
+				}
+			}
+			this->TimePicker1->FormattingEnabled = true;
+			this->TimePicker1->Location = System::Drawing::Point(522, 227);
+			this->TimePicker1->Name = L"TimePicker1";
+			this->TimePicker1->Size = System::Drawing::Size(178, 23);
+			this->TimePicker1->TabIndex = 95;
+			// 
+			// TimePicker2
+			// 
+			this->TimePicker2 = (gcnew System::Windows::Forms::ComboBox());
+			for (int i = 0; i < 24; i++)
+			{
+				for (int j = 0; j < 60; j += 1)
+				{
+					this->TimePicker2->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
+				}
+			}
+			this->TimePicker2->FormattingEnabled = true;
+			this->TimePicker2->Location = System::Drawing::Point(522, 269);
+			this->TimePicker2->Name = L"TimePicker2";
+			this->TimePicker2->Size = System::Drawing::Size(178, 23);
+			this->TimePicker2->TabIndex = 95;
+			// 
 			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::MenuHighlight;
 			this->ClientSize = System::Drawing::Size(982, 753);
+			this->Controls->Add(this->TimePicker2);
+			this->Controls->Add(this->TimePicker1);
+			this->Controls->Add(this->datePicker2);
+			this->Controls->Add(this->datePicker1);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label9);
-			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->back);
 			this->Controls->Add(this->logout);
@@ -470,11 +524,9 @@ namespace Hennsyuu {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->update);
-			this->Controls->Add(this->textBox7);
+			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->memo);
@@ -495,14 +547,16 @@ namespace Hennsyuu {
 		}
 #pragma endregion
 		//クラスの変数宣言
-		public: String^ keyVal;
-		private: int addNum = 0;
+	public: String^ keyVal;
+	private: int addNum = 0;
+
+
 
 	private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 		System::Diagnostics::Debug::WriteLine(keyVal);
 		//	各自のCSVファイルのパスに変更してください
 		//5月24日
-		String^ path = "C:\\Users\\sendai\\Desktop\\csv\\schedule.csv";
+		String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
 		List<String^>^ keyList = gcnew List<String^>;
 		String^ n = "";
@@ -561,93 +615,114 @@ namespace Hennsyuu {
 		}
 		return System::Void();
 	}
-		   
-void AddToCSV(array<String^> ^ texts)
-{
-	//追加するCSVのパス
-	String^ path = "C:\\Users\\sendai\\Desktop\\csv\\schedule.csv";
-	StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
-	List<String^>^ bdArr = gcnew List<String^>;
-	try {
-		//headerを飛ばす
-		bdArr->Add(sr->ReadLine());
-		while (sr->Peek() > 0) {//読み取り文字がある間は回し続ける
-			String^ line = sr->ReadLine();  //一行ずつ読み取り
-			cli::array<String^>^ arr = line->Split(','); //読み取った文字列を、,　部分で分割
-			if (arr[0] == "END") {
-				bdArr->Add(line);
-				break;
-			}
-			//keyとなる値から検索
-			if (arr[0] == keyVal) {  //行の１番目（ID）が、渡されたKeyと一緒の場合
-				String^ afLine = ""; //空の文字列
-				String^ sep = ",";  //コンマ
-				for (int j = 0; j < 9; j++) {  
-					afLine += texts[j] + sep;  //本来であれば、空の文字列に合致する1行+コンマを、項目ごとに代入していた
-				}
-				bdArr->Add(afLine);  //リストに、afLineをいれる。合致した場合は
-			}
-			else {
-				bdArr->Add(line);  //そうでない場合は、読み取った１行を、丸ごと入れる
-			}
-		}
-	}
-	catch (Exception^ e) {
-		MessageBox::Show(e->ToString());
-	}
-	finally {
-		sr->Close();
-	}
-	try {
-		//CSVを追記モードで開く
-		StreamWriter^ sw = gcnew StreamWriter(path, false, Encoding::UTF8);
-		//テキストをファイルに書き込む
-		for (int i = 0; i < bdArr->Count; i++) {
-			String^ sep = "\n";
-			if (i == bdArr->Count - 1) sep = "";
-			sw->Write(bdArr[i] + sep,false);
-		}
-		//ファイルを閉じる
-		sw->Close();
-	}
-	catch (Exception^ e)
-	{
-		//エラー処理
-		Console::WriteLine("エラー：" + e->Message);
-	}	
-	return System::Void();
-}
 
-private: System::Void update_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	//テキストボックスから入力
-	array<String^>^ inputTexts = gcnew array<String^>(9);
-	inputTexts[0] = textBox1->Text;
-	inputTexts[1] = textBox2->Text;
-	inputTexts[2] = textBox3->Text;
-	inputTexts[3] = textBox4->Text;
-	inputTexts[4] = textBox5->Text;
-	inputTexts[5] = textBox6->Text;
-	inputTexts[6] = textBox7->Text;
-	inputTexts[7] = textBox8->Text;
-	inputTexts[8] = "0"; // 9列目にはデフォルトで0を設定
-	// 未入力の項目があるかチェック
-	for (int i = 0; i < 8; i++) {
-		if (String::IsNullOrEmpty(inputTexts[i])) {
-			MessageBox::Show("TextBox" + (i + 1) + "が未入力です。");
+		   void AddToCSV(array<String^>^ texts)
+		   {
+			   //追加するCSVのパス
+			   String^ path = "C:\\Users\\tounichi\\Documents\\チーム開発演習\\schedule.csv";
+			   StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+			   List<String^>^ bdArr = gcnew List<String^>;
+			   try {
+				   //headerを飛ばす
+				   bdArr->Add(sr->ReadLine());
+				   while (sr->Peek() > 0) {//読み取り文字がある間は回し続ける
+					   String^ line = sr->ReadLine();  //一行ずつ読み取り
+					   cli::array<String^>^ arr = line->Split(','); //読み取った文字列を、,　部分で分割
+					   if (arr[0] == "END") {
+						   bdArr->Add(line);
+						   break;
+					   }
+					   //keyとなる値から検索
+					   if (arr[0] == keyVal) {  //行の１番目（ID）が、渡されたKeyと一緒の場合
+						   String^ afLine = ""; //空の文字列
+						   String^ sep = ",";  //コンマ
+						   for (int j = 0; j < 9; j++) {
+							   afLine += texts[j] + sep;  //本来であれば、空の文字列に合致する1行+コンマを、項目ごとに代入していた
+						   }
+						   bdArr->Add(afLine);  //リストに、afLineをいれる。合致した場合は
+					   }
+					   else {
+						   bdArr->Add(line);  //そうでない場合は、読み取った１行を、丸ごと入れる
+					   }
+				   }
+			   }
+			   catch (Exception^ e) {
+				   MessageBox::Show(e->ToString());
+			   }
+			   finally {
+				   sr->Close();
+			   }
+			   try {
+				   //CSVを追記モードで開く
+				   StreamWriter^ sw = gcnew StreamWriter(path, false, Encoding::UTF8);
+				   //テキストをファイルに書き込む
+				   for (int i = 0; i < bdArr->Count; i++) {
+					   String^ sep = "\n";
+					   if (i == bdArr->Count - 1) sep = "";
+					   sw->Write(bdArr[i] + sep, false);
+				   }
+				   //ファイルを閉じる
+				   sw->Close();
+			   }
+			   catch (Exception^ e)
+			   {
+				   //エラー処理
+				   MessageBox::Show("エラーが発生しました。元の画面に戻ります。");
+				   Console::WriteLine("エラー：" + e->Message);
+			   }
+			   return System::Void();
+		   }
+
+	private: System::Void update_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		//テキストボックスから入力
+		array<String^>^ inputTexts = gcnew array<String^>(9);
+		inputTexts[0] = textBox1->Text;
+		inputTexts[1] = textBox2->Text;
+		inputTexts[2] = datePicker1->Value.ToString("yyyy/MM/dd") + " " + TimePicker1->Text; // 開始日時
+		inputTexts[3] = datePicker2->Value.ToString("yyyy/MM/dd") + " " + TimePicker2->Text; // 終了日時
+		inputTexts[4] = textBox5->Text;
+		inputTexts[5] = textBox6->Text;
+		inputTexts[6] = textBox7->Text;
+		inputTexts[7] = textBox8->Text;
+		inputTexts[8] = "0"; // 9列目にはデフォルトで0を設定
+
+		// 未入力の項目があるかチェック
+		for (int i = 0; i < 8; i++) {
+			if (String::IsNullOrEmpty(inputTexts[i])) {
+				MessageBox::Show("未入力項目があります。");
+				/*textBox" + (i + 1) + "が未入力です。*/
+				return;
+			}
+		}
+
+		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("本当に更新しますか？", "確認", MessageBoxButtons::YesNo)) {
+
+			//CSVファイルに追加
+			AddToCSV(inputTexts);
+			this->Close();
+		}
+		else {
 			return;
 		}
+
+		//CSVファイルに追加
+		//AddToCSV(inputTexts);
+		//this->Close();
 	}
-	//CSVファイルに追加
-	AddToCSV(inputTexts);
-	this->Close();
-}
-private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-private: System::Void back_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-};
+	private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
+			this->Close();
+		}
+		else {
+			return;
+		}
+
+	}
+	private: System::Void back_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+	private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	};
 }

@@ -113,7 +113,7 @@ namespace Hennsyuu2 {
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e)
 	{
-		String^ path = "C:\\Users\\sendai\\Desktop\\csv\\schedule.csv";
+		String^ path = "C:\\Users\\tounichi\\Documents\\ƒ`[ƒ€ŠJ”­‰‰K\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
 		List<String^>^ titleList = gcnew List<String^>;
 		String^ n = "";
