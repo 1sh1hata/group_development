@@ -2,5 +2,5 @@ C:\Users\sendai\Desktop\group_development\Login\Login\x64\Debug\Login.vcxproj.As
 C:\Users\sendai\Desktop\group_development\Login\Login\x64\Debug\Login.MyForm.resources
 C:\Users\sendai\Desktop\group_development\Login\Login\x64\Debug\Login.vcxproj.GenerateResource.cache
 C:\Users\sendai\Desktop\Login\Login\x64\Debug\Login.vcxproj.AssemblyReference.cache
-C:\Users\sendai\Desktop\Login\Login\x64\Debug\Login.MyForm.resources
 C:\Users\sendai\Desktop\Login\Login\x64\Debug\Login.vcxproj.GenerateResource.cache
+C:\Users\sendai\Desktop\Login\Login\x64\Debug\Login.LoginForm.resources
