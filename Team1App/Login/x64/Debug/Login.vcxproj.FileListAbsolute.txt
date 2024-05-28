@@ -5,3 +5,10 @@ C:\Users\sendai\Desktop\Team1App\Login\x64\Debug\Login.all_user_show.resources
 C:\Users\sendai\Desktop\Team1App\Login\x64\Debug\Login.insert.resources
 C:\Users\sendai\Desktop\Team1App\Login\x64\Debug\Login.edit.resources
 C:\Users\sendai\Desktop\Team1App\Login\x64\Debug\Login.detail.resources
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.vcxproj.AssemblyReference.cache
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.all_user_show.resources
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.detail.resources
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.edit.resources
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.insert.resources
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.login.resources
+C:\Users\tounichi\Desktop\group_development\Team1App\Login\x64\Debug\Login.vcxproj.GenerateResource.cache

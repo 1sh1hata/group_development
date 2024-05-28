@@ -114,7 +114,7 @@ namespace Login {
 			// 
 			// timePicker2
 			// 
-			this->timePicker2 = (gcnew System::Windows::Forms::ComboBox());
+			this->timePicker2->FormattingEnabled = true;
 			for (int i = 0; i < 24; i++)
 			{
 				for (int j = 0; j < 60; j += 1)
@@ -122,15 +122,14 @@ namespace Login {
 					this->timePicker2->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
 				}
 			}
-			this->timePicker2->FormattingEnabled = true;
-			this->timePicker2->Location = System::Drawing::Point(358, 240);
+			this->timePicker2->Location = System::Drawing::Point(530, 282);
 			this->timePicker2->Name = L"timePicker2";
-			this->timePicker2->Size = System::Drawing::Size(121, 23);
+			this->timePicker2->Size = System::Drawing::Size(156, 23);
 			this->timePicker2->TabIndex = 23;
 			// 
 			// timePicker1
 			// 
-			this->timePicker1 = (gcnew System::Windows::Forms::ComboBox());
+			this->timePicker1->FormattingEnabled = true;
 			for (int i = 0; i < 24; i++)
 			{
 				for (int j = 0; j < 60; j += 1)
@@ -138,22 +137,21 @@ namespace Login {
 					this->timePicker1->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
 				}
 			}
-			this->timePicker1->FormattingEnabled = true;
-			this->timePicker1->Location = System::Drawing::Point(522, 227);
-			this->timePicker1->Name = L"TimePicker1";
-			this->timePicker1->Size = System::Drawing::Size(178, 23);
+			this->timePicker1->Location = System::Drawing::Point(530, 239);
+			this->timePicker1->Name = L"timePicker1";
+			this->timePicker1->Size = System::Drawing::Size(156, 23);
 			this->timePicker1->TabIndex = 95;
 			// 
 			// datePicker2
 			// 
-			this->datePicker2->Location = System::Drawing::Point(0, 0);
+			this->datePicker2->Location = System::Drawing::Point(335, 282);
 			this->datePicker2->Name = L"datePicker2";
 			this->datePicker2->Size = System::Drawing::Size(200, 22);
 			this->datePicker2->TabIndex = 2;
 			// 
 			// datePicker1
 			// 
-			this->datePicker1->Location = System::Drawing::Point(0, 0);
+			this->datePicker1->Location = System::Drawing::Point(335, 240);
 			this->datePicker1->Name = L"datePicker1";
 			this->datePicker1->Size = System::Drawing::Size(200, 22);
 			this->datePicker1->TabIndex = 3;
@@ -264,11 +262,11 @@ namespace Login {
 			this->label2->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(269, 142);
+			this->label2->Location = System::Drawing::Point(254, 143);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(205, 28);
+			this->label2->Size = System::Drawing::Size(475, 28);
 			this->label2->TabIndex = 31;
-			this->label2->Text = L"ID　　 自動生成";
+			this->label2->Text = L"ID　　 自動生成                           ";
 			this->label2->Click += gcnew System::EventHandler(this, &insert::label2_Click);
 			// 
 			// label1
@@ -504,7 +502,7 @@ void AddToCSV(array<String^>^ texts)
 
 int GetNextId(String^ filePath)
 {
-	int lastId = 0;
+	int lastId;
 	try {
 		StreamReader^ reader = gcnew StreamReader(filePath);
 		String^ lastLine = "";
@@ -545,14 +543,24 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	// 未入力の項目があるかチェック
 	for (int i = 2; i < 8; i++) { // iは1から始まることに注意
 		if (String::IsNullOrEmpty(inputTexts[i])) {
-			MessageBox::Show("TextBox" + i + "が未入力です。");
+			MessageBox::Show("未入力項目があります。");
 			return;
 		}
 	}
-	// CSVファイルに追加
-	AddToCSV(inputTexts);
-	MessageBox::Show("登録が完了しました。");
-	Close();
+	if (String::IsNullOrEmpty(timePicker1->Text)) {
+		MessageBox::Show("未入力項目があります。");
+		return;
+	}
+	if (String::IsNullOrEmpty(timePicker2->Text)) {
+		MessageBox::Show("未入力項目があります。");
+		return;
+	}
+
+	if (MessageBox::Show("登録しますか？", "確認", MessageBoxButtons::YesNo) == System::Windows::Forms::DialogResult::Yes) {
+		// CSVファイルに追加
+		AddToCSV(inputTexts);
+		Close();
+	}
 }
 //戻るボタンがクリックされたときに呼び出される関数
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -58,8 +58,10 @@ namespace Login {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button_edit;
+	private: System::Windows::Forms::TextBox^ textBox8;
 
-	private: System::Windows::Forms::TextBox^ textBox7;
+
+
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox4;
@@ -76,7 +78,8 @@ namespace Login {
 	private: System::Windows::Forms::Label^ title;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::TextBox^ textBox7;
+
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ assignee;
 
@@ -103,7 +106,7 @@ namespace Login {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button_edit = (gcnew System::Windows::Forms::Button());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
@@ -119,7 +122,7 @@ namespace Login {
 			this->title = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->assignee = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -239,20 +242,23 @@ namespace Login {
 			this->button_edit->UseVisualStyleBackColor = false;
 			this->button_edit->Click += gcnew System::EventHandler(this, &detail::edit_Click);
 			// 
-			// textBox7
+			// textBox8
 			// 
-			this->textBox7->Location = System::Drawing::Point(335, 464);
-			this->textBox7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox7->Multiline = true;
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(350, 133);
-			this->textBox7->TabIndex = 39;
+			this->textBox8->Location = System::Drawing::Point(335, 464);
+			this->textBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox8->Multiline = true;
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->ReadOnly = true;
+			this->textBox8->Size = System::Drawing::Size(350, 133);
+			this->textBox8->TabIndex = 39;
+			this->textBox8->TextChanged += gcnew System::EventHandler(this, &detail::textBox8_TextChanged);
 			// 
 			// textBox6
 			// 
 			this->textBox6->Location = System::Drawing::Point(335, 374);
 			this->textBox6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox6->Name = L"textBox6";
+			this->textBox6->ReadOnly = true;
 			this->textBox6->Size = System::Drawing::Size(350, 22);
 			this->textBox6->TabIndex = 38;
 			// 
@@ -261,6 +267,7 @@ namespace Login {
 			this->textBox5->Location = System::Drawing::Point(335, 329);
 			this->textBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox5->Name = L"textBox5";
+			this->textBox5->ReadOnly = true;
 			this->textBox5->Size = System::Drawing::Size(350, 22);
 			this->textBox5->TabIndex = 37;
 			// 
@@ -269,6 +276,7 @@ namespace Login {
 			this->textBox4->Location = System::Drawing::Point(335, 282);
 			this->textBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(350, 22);
 			this->textBox4->TabIndex = 36;
 			// 
@@ -277,6 +285,7 @@ namespace Login {
 			this->textBox3->Location = System::Drawing::Point(335, 234);
 			this->textBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox3->Name = L"textBox3";
+			this->textBox3->ReadOnly = true;
 			this->textBox3->Size = System::Drawing::Size(350, 22);
 			this->textBox3->TabIndex = 35;
 			// 
@@ -285,6 +294,7 @@ namespace Login {
 			this->textBox2->Location = System::Drawing::Point(335, 190);
 			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->ReadOnly = true;
 			this->textBox2->Size = System::Drawing::Size(350, 22);
 			this->textBox2->TabIndex = 34;
 			// 
@@ -293,6 +303,7 @@ namespace Login {
 			this->textBox1->Location = System::Drawing::Point(335, 149);
 			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->ReadOnly = true;
 			this->textBox1->Size = System::Drawing::Size(351, 22);
 			this->textBox1->TabIndex = 33;
 			// 
@@ -402,12 +413,13 @@ namespace Login {
 			this->label9->TabIndex = 124;
 			this->label9->Text = L"重要度";
 			// 
-			// textBox8
+			// textBox7
 			// 
-			this->textBox8->Location = System::Drawing::Point(335, 421);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(350, 22);
-			this->textBox8->TabIndex = 123;
+			this->textBox7->Location = System::Drawing::Point(335, 421);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->ReadOnly = true;
+			this->textBox7->Size = System::Drawing::Size(350, 22);
+			this->textBox7->TabIndex = 123;
 			// 
 			// label10
 			// 
@@ -440,7 +452,7 @@ namespace Login {
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label9);
-			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->button_back);
 			this->Controls->Add(this->logout);
 			this->Controls->Add(this->label7);
@@ -451,7 +463,7 @@ namespace Login {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button_edit);
-			this->Controls->Add(this->textBox7);
+			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
@@ -474,7 +486,7 @@ namespace Login {
 
 		}
 #pragma endregion
-	private: String^ keyVal = "1001";
+	private: String^ keyVal;
 	private: int addNum = 0;
 
 	private: System::Void detail_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -519,7 +531,7 @@ namespace Login {
 		for (int i = 0; i < keyList->Count; i++) {
 
 			// TextBox1からTextBox6に値を設定
-			if (i < 6) {
+			if (i < 8) {
 				Control^ c = this->Controls["textBox" + (i + 1).ToString()];
 				if (c != nullptr) {
 					TextBox^ tb = dynamic_cast<TextBox^>(c);
@@ -542,14 +554,16 @@ namespace Login {
 
 	}
 	private: System::Void edit_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ key;
-		key = keyVal;
-		edit^ editPage = gcnew edit(key);
+
+		edit^ editPage = gcnew edit(keyVal);
 		editPage->ShowDialog();
+		detail_Load(sender, e);
 	}
 	private: System::Void back_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
 
-	};
+	private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

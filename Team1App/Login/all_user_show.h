@@ -255,6 +255,7 @@ namespace Login {
 			this->Name = L"all_user_show";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"all_user_show";
+			this->Activated += gcnew System::EventHandler(this, &all_user_show::all_user_show_Activated);
 			this->Load += gcnew System::EventHandler(this, &all_user_show::all_user_show_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
@@ -262,122 +263,131 @@ namespace Login {
 
 		}
 #pragma endregion
-private: System::Void all_user_show_Load(System::Object^ sender, System::EventArgs^ e) {
-	String^ path = ".\\schedule.csv";
-	StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
-	List<String^>^ titleList = gcnew List<String^>;
-	List<String^>^ secondColumnList = gcnew List<String^>;
-	String^ n = "";
-	try {
-		//headerを飛ばす
-		sr->ReadLine();
-		while (sr->Peek() > 0) {
-			String^ line = sr->ReadLine();
-			cli::array<String^>^ arr = line->Split(',');
-			if (arr[0] == "END") break;
-			//titleを取得
-			titleList->Add(arr[0]);
-			//2列目の値を取得
-			secondColumnList->Add(arr[1]);
+	private: System::Void all_user_show_Load(System::Object^ sender, System::EventArgs^ e) {
+		String^ path = ".\\schedule.csv";
+		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+		List<String^>^ titleList = gcnew List<String^>;
+		List<String^>^ secondColumnList = gcnew List<String^>;
+		String^ n = "";
+		try {
+			//headerを飛ばす
+			sr->ReadLine();
+			while (sr->Peek() > 0) {
+				String^ line = sr->ReadLine();
+				cli::array<String^>^ arr = line->Split(',');
+				if (arr[0] == "END") break;
+				//titleを取得
+				titleList->Add(arr[0]);
+				//2列目の値を取得
+				secondColumnList->Add(arr[1]);
+			}
 		}
+		catch (Exception^ e) {
+			MessageBox::Show(e->ToString());
+		}
+		finally {
+			sr->Close();
+		}
+		for (int i = 0; i < titleList->Count; i++) {
+			dataGridView1->Rows->Add();
+			dataGridView1->Rows[dataGridView1->RowCount - 1]->Cells[0]->Value = titleList[i];
+			dataGridView1->Rows[dataGridView1->RowCount - 1]->Cells[1]->Value = secondColumnList[i];
+		}
+		dataGridView1->Refresh();
+		return System::Void();
 	}
-	catch (Exception^ e) {
-		MessageBox::Show(e->ToString());
-	}
-	finally {
-		sr->Close();
-	}
-	for (int i = 0; i < titleList->Count; i++) {
-		dataGridView1->Rows->Add();
-		dataGridView1->Rows[dataGridView1->RowCount - 1]->Cells[0]->Value = titleList[i];
-		dataGridView1->Rows[dataGridView1->RowCount - 1]->Cells[1]->Value = secondColumnList[i];
-	}
-	dataGridView1->Refresh();
-	return System::Void();
-}
 
-private: System::Void SearchButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ titleSearch = TitleTextBox->Text;
-	String^ stDaySearch = St_dayTextBox->Text;
 
-	// 全ての行を一旦削除
-	dataGridView1->Rows->Clear();
+	private: System::Void SearchButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ titleSearch = TitleTextBox->Text;
+		String^ stDaySearch = St_dayTextBox->Text;
 
-	// CSVファイルを開く
-	StreamReader^ sr = gcnew StreamReader(".\\schedule.csv", Encoding::UTF8);
-	try {
-		//headerを飛ばす
-		sr->ReadLine();
+		// 全ての行を一旦削除
+		dataGridView1->Rows->Clear();
 
-		int rowIndex = 0;
-		while (sr->Peek() > 0) {
-			String^ line = sr->ReadLine();
-			cli::array<String^>^ arr = line->Split(',');
-			if (arr[0] == "END") {
-				break;
-			}
+		// CSVファイルを開く
+		StreamReader^ sr;
+		try {
+			sr = gcnew StreamReader(".\\schedule.csv", Encoding::UTF8);
+			//headerを飛ばす
+			sr->ReadLine();
 
-			if (titleSearch == "" && stDaySearch == "") {
-				// 全ての行を一旦削除
-				dataGridView1->Rows->Clear();
-				all_user_show_Load(sender, e);
-			}
-
-			else if ((titleSearch == "" || arr[0]->Contains(titleSearch)) && (stDaySearch == "" || arr[1]->Contains(stDaySearch))) {
-				// 必要な行が存在しない場合は追加
-				if (rowIndex >= dataGridView1->Rows->Count) {
-					dataGridView1->Rows->Add();
+			int rowIndex = 0;
+			while (sr->Peek() > 0) {
+				String^ line = sr->ReadLine();
+				cli::array<String^>^ arr = line->Split(',');
+				if (arr[0] == "END") {
+					break;
 				}
-				dataGridView1->Rows[rowIndex]->Cells[0]->Value = arr[0];
-				dataGridView1->Rows[rowIndex]->Cells[1]->Value = arr[1];
-				rowIndex++;
+
+				if (titleSearch == "" && stDaySearch == "") {
+					// 全ての行を一旦削除
+					dataGridView1->Rows->Clear();
+					all_user_show_Load(sender, e);
+				}
+
+				else if ((titleSearch == "" || arr[0]->Contains(titleSearch)) && (stDaySearch == "" || arr[1]->Contains(stDaySearch))) {
+					// 必要な行が存在しない場合は追加
+					if (rowIndex >= dataGridView1->Rows->Count) {
+						dataGridView1->Rows->Add();
+					}
+					dataGridView1->Rows[rowIndex]->Cells[0]->Value = arr[0];
+					dataGridView1->Rows[rowIndex]->Cells[1]->Value = arr[1];
+					rowIndex++;
+				}
 			}
 		}
-	}
-	catch (Exception^ e) {
-		MessageBox::Show(e->ToString());
-	}
-	finally {
-		sr->Close();
-	}
-	dataGridView1->Refresh();
-}
-
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	insert^ insertForm = gcnew insert();
-	insertForm->ShowDialog();
-	return System::Void();
-}
-
-
-private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	String^ key;
-	for each (DataGridViewCell ^ c in dataGridView1->SelectedCells)
-	{
-		key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
-
-	}
-	detail^ detailForm = gcnew detail(key);
-	detailForm->Show();
-	return System::Void();
-}
-
-private: System::Void contextMenuStrip1_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-	String^ key;
-	for each (DataGridViewCell ^ c in dataGridView1->SelectedCells)
-	{
-		key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
-
-	}
-	detail^ detailForm = gcnew detail(key);
-	detailForm->Show();
-	return System::Void();
-}
-private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
-		this->Close();
+		catch (Exception^ e) {
+			MessageBox::Show("CSVファイルが読み込めません");
+		}
+		finally {
+			sr->Close();
+		}
+		dataGridView1->Refresh();
 	}
 
-}
-};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		insert^ insertForm = gcnew insert();
+		insertForm->ShowDialog();
+		dataGridView1->Rows->Clear();
+		all_user_show_Load(sender, e);
+		return System::Void();
+	}
+
+
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		String^ key;
+		for each (DataGridViewCell ^ c in dataGridView1->SelectedCells)
+		{
+			key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
+
+		}
+		detail^ detailForm = gcnew detail(key);
+		detailForm->ShowDialog();
+		dataGridView1->Rows->Clear();
+		all_user_show_Load(sender, e);
+		return System::Void();
+	}
+
+	private: System::Void contextMenuStrip1_Opening(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
+		String^ key;
+		for each (DataGridViewCell ^ c in dataGridView1->SelectedCells)
+		{
+			key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
+
+		}
+		detail^ detailForm = gcnew detail(key);
+		detailForm->ShowDialog();
+		return System::Void();
+	}
+	private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
+			this->Close();
+		}
+
+	}
+	private: System::Void all_user_show_Activated(System::Object^ sender, System::EventArgs^ e) {
+		dataGridView1->Refresh();
+	}
+	};
 }

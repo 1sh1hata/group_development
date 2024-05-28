@@ -84,7 +84,7 @@ namespace Login {
 		/// <summary>
 		/// 必要なデザイナー変数です。
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -130,16 +130,8 @@ namespace Login {
 			// 
 			// TimePicker2
 			// 
-			this->TimePicker2 = (gcnew System::Windows::Forms::ComboBox());
-			for (int i = 0; i < 24; i++)
-			{
-				for (int j = 0; j < 60; j += 1)
-				{
-					this->TimePicker2->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
-				}
-			}
 			this->TimePicker2->FormattingEnabled = true;
-			this->TimePicker2->Location = System::Drawing::Point(522, 269);
+			this->TimePicker2->Location = System::Drawing::Point(507, 282);
 			this->TimePicker2->Name = L"TimePicker2";
 			this->TimePicker2->Size = System::Drawing::Size(178, 23);
 			this->TimePicker2->TabIndex = 95;
@@ -153,16 +145,8 @@ namespace Login {
 			// 
 			// TimePicker1
 			// 
-			this->TimePicker1 = (gcnew System::Windows::Forms::ComboBox());
-			for (int i = 0; i < 24; i++)
-			{
-				for (int j = 0; j < 60; j += 1)
-				{
-					this->TimePicker1->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
-				}
-			}
 			this->TimePicker1->FormattingEnabled = true;
-			this->TimePicker1->Location = System::Drawing::Point(522, 227);
+			this->TimePicker1->Location = System::Drawing::Point(507, 234);
 			this->TimePicker1->Name = L"TimePicker1";
 			this->TimePicker1->Size = System::Drawing::Size(178, 23);
 			this->TimePicker1->TabIndex = 95;
@@ -511,13 +495,14 @@ namespace Login {
 			this->Name = L"edit";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"スケジュール編集";
+			this->Load += gcnew System::EventHandler(this, &edit::edit_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	//クラスの変数宣言
+		//クラスの変数宣言
 	public: String^ keyVal;
 	private: int addNum = 0;
 
@@ -591,13 +576,22 @@ namespace Login {
 		inputTexts[8] = "0"; // 9列目にはデフォルトで0を設定
 
 		// 未入力の項目があるかチェック
-		for (int i = 0; i < 8; i++) {
+		for (int i = 1; i < 8; i++) {
 			if (String::IsNullOrEmpty(inputTexts[i])) {
 				MessageBox::Show("未入力項目があります。");
 				/*textBox" + (i + 1) + "が未入力です。*/
 				return;
 			}
 		}
+		if(String::IsNullOrEmpty(TimePicker1->Text)) {
+			MessageBox::Show("未入力項目があります。");
+			return;
+		}
+		if (String::IsNullOrEmpty(TimePicker2->Text)) {
+			MessageBox::Show("未入力項目があります。");
+			return;
+		}
+
 
 		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("本当に更新しますか？", "確認", MessageBoxButtons::YesNo)) {
 
@@ -609,10 +603,11 @@ namespace Login {
 			return;
 		}
 	}
-	private: System::Void back_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: System::Void back_Click(System::Object ^ sender, System::EventArgs ^ e) {
 		this->Close();
 	}
-	private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void logout_Click(System::Object ^ sender, System::EventArgs ^ e) {
 		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
 			this->Close();
 		}
@@ -620,7 +615,62 @@ namespace Login {
 			return;
 		}
 	}
-private: System::Void title_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void title_Click(System::Object ^ sender, System::EventArgs ^ e) {
+	}
+
+	private: System::Void edit_Load(System::Object ^ sender, System::EventArgs ^ e) {
+		String^ path = ".\\schedule.csv";
+		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+		List<String^>^ keyList = gcnew List<String^>;
+		String^ n = "";
+		//------エラー処理-------
+		try {
+			//headerを飛ばす
+			sr->ReadLine();
+			while (sr->Peek() > 0) {
+				String^ line = sr->ReadLine();
+				cli::array<String^>^ arr = line->Split(',');
+				if (arr[0] == "END") break;
+				//keyとなる値から検索
+				if (arr[0] == keyVal) {
+					//データの最大長を取得
+					int num = arr->Length;
+					//追加データがあるか判定
+					if (arr[addNum] != "" && arr[addNum] != nullptr) {
+						//ある場合はカンマ区切りで取得
+						for (int i = addNum; i < num; i++) {
+							if (arr[i] == "" || i == num - 1) {
+								keyList->Add(arr[i]);
+								break;
+							}
+							else {
+								keyList->Add(arr[i]);
+							}
+						}
+					}
+				}
+			}
+		}
+		catch (Exception^ e) {
+			MessageBox::Show(e->ToString());
+		}
+		finally {
+			sr->Close();
+		}
+		for (int i = 0; i < keyList->Count; i++) {
+
+			// TextBox1からTextBox8に値を設定
+			if (i < 8) {
+				Control^ c = this->Controls["textBox" + (i + 1).ToString()];
+				if (c != nullptr) {
+					TextBox^ tb = dynamic_cast<TextBox^>(c);
+					if (tb != nullptr) {
+						tb->Text = keyList[i];
+					}
+				}
+			}
+		}
+		return System::Void();
+	}
+	};
 }
