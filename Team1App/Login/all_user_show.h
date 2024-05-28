@@ -263,6 +263,9 @@ namespace Login {
 
 		}
 #pragma endregion
+	detail^ detailForm;
+	insert^ insertForm;
+
 	private: System::Void all_user_show_Load(System::Object^ sender, System::EventArgs^ e) {
 		String^ path = ".\\schedule.csv";
 		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
@@ -307,6 +310,7 @@ namespace Login {
 
 		// CSVファイルを開く
 		StreamReader^ sr;
+		int count = 0;
 		try {
 			sr = gcnew StreamReader(".\\schedule.csv", Encoding::UTF8);
 			//headerを飛ばす
@@ -322,6 +326,7 @@ namespace Login {
 
 				if (titleSearch == "" && stDaySearch == "") {
 					// 全ての行を一旦削除
+					count = 1;
 					dataGridView1->Rows->Clear();
 					all_user_show_Load(sender, e);
 				}
@@ -334,7 +339,11 @@ namespace Login {
 					dataGridView1->Rows[rowIndex]->Cells[0]->Value = arr[0];
 					dataGridView1->Rows[rowIndex]->Cells[1]->Value = arr[1];
 					rowIndex++;
+					count++;
 				}
+			}
+			if (count == 0) {
+				MessageBox::Show("該当項目がありません");
 			}
 		}
 		catch (Exception^ e) {
@@ -347,7 +356,7 @@ namespace Login {
 	}
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		insert^ insertForm = gcnew insert();
+		insertForm = gcnew insert();
 		insertForm->ShowDialog();
 		dataGridView1->Rows->Clear();
 		all_user_show_Load(sender, e);
@@ -376,18 +385,25 @@ namespace Login {
 			key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
 
 		}
-		detail^ detailForm = gcnew detail(key);
+		detailForm = gcnew detail(key);
 		detailForm->ShowDialog();
 		return System::Void();
 	}
 	private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
+			logout::canLogout = false;
 			this->Close();
 		}
+		else {}
 
 	}
 	private: System::Void all_user_show_Activated(System::Object^ sender, System::EventArgs^ e) {
 		dataGridView1->Refresh();
+		if (logout::canLogout == true) {
+			logout::canLogout = false;
+			this->Close();
+		}
+		else {}
 	}
 	};
 }

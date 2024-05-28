@@ -1,4 +1,5 @@
 #pragma once
+#include "logout.h"
 
 namespace Login {
 
@@ -609,6 +610,7 @@ namespace Login {
 	}
 	private: System::Void logout_Click(System::Object ^ sender, System::EventArgs ^ e) {
 		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
+			logout::canLogout = true;
 			this->Close();
 		}
 		else {

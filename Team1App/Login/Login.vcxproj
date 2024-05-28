@@ -125,6 +125,7 @@
     <ClCompile Include="edit.cpp" />
     <ClCompile Include="insert.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="logout.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="all_user_show.h">
@@ -142,6 +143,7 @@
     <ClInclude Include="login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="logout.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="all_user_show.resx">

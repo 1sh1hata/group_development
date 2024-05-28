@@ -1,5 +1,6 @@
 #pragma once
 #include "edit.h"
+#include "logout.h"
 
 namespace Login {
 
@@ -244,6 +245,9 @@ namespace Login {
 			// 
 			// textBox8
 			// 
+			this->textBox8->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox8->Enabled = false;
+			this->textBox8->ForeColor = System::Drawing::Color::Black;
 			this->textBox8->Location = System::Drawing::Point(335, 464);
 			this->textBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox8->Multiline = true;
@@ -255,6 +259,9 @@ namespace Login {
 			// 
 			// textBox6
 			// 
+			this->textBox6->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox6->Enabled = false;
+			this->textBox6->ForeColor = System::Drawing::Color::Black;
 			this->textBox6->Location = System::Drawing::Point(335, 374);
 			this->textBox6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox6->Name = L"textBox6";
@@ -264,6 +271,9 @@ namespace Login {
 			// 
 			// textBox5
 			// 
+			this->textBox5->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox5->Enabled = false;
+			this->textBox5->ForeColor = System::Drawing::Color::Black;
 			this->textBox5->Location = System::Drawing::Point(335, 329);
 			this->textBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox5->Name = L"textBox5";
@@ -273,6 +283,9 @@ namespace Login {
 			// 
 			// textBox4
 			// 
+			this->textBox4->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox4->Enabled = false;
+			this->textBox4->ForeColor = System::Drawing::Color::Black;
 			this->textBox4->Location = System::Drawing::Point(335, 282);
 			this->textBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox4->Name = L"textBox4";
@@ -282,6 +295,9 @@ namespace Login {
 			// 
 			// textBox3
 			// 
+			this->textBox3->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox3->Enabled = false;
+			this->textBox3->ForeColor = System::Drawing::Color::Black;
 			this->textBox3->Location = System::Drawing::Point(335, 234);
 			this->textBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox3->Name = L"textBox3";
@@ -291,6 +307,9 @@ namespace Login {
 			// 
 			// textBox2
 			// 
+			this->textBox2->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox2->Enabled = false;
+			this->textBox2->ForeColor = System::Drawing::Color::Black;
 			this->textBox2->Location = System::Drawing::Point(335, 190);
 			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox2->Name = L"textBox2";
@@ -300,6 +319,9 @@ namespace Login {
 			// 
 			// textBox1
 			// 
+			this->textBox1->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox1->Enabled = false;
+			this->textBox1->ForeColor = System::Drawing::Color::Black;
 			this->textBox1->Location = System::Drawing::Point(335, 149);
 			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox1->Name = L"textBox1";
@@ -415,6 +437,9 @@ namespace Login {
 			// 
 			// textBox7
 			// 
+			this->textBox7->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->textBox7->Enabled = false;
+			this->textBox7->ForeColor = System::Drawing::Color::Black;
 			this->textBox7->Location = System::Drawing::Point(335, 421);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->ReadOnly = true;
@@ -480,6 +505,7 @@ namespace Login {
 			this->Controls->Add(this->title);
 			this->Name = L"detail";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Activated += gcnew System::EventHandler(this, &detail::detail_Activated);
 			this->Load += gcnew System::EventHandler(this, &detail::detail_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -546,6 +572,7 @@ namespace Login {
 
 	private: System::Void logout_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("ログアウトしますか？", "確認", MessageBoxButtons::YesNo)) {
+			logout::canLogout = true;
 			this->Close();
 		}
 		else {
@@ -565,5 +592,10 @@ namespace Login {
 
 	private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void detail_Activated(System::Object^ sender, System::EventArgs^ e) {
+	if (logout::canLogout == true) {
+		this->Close();
+	}
+}
 };
 }
