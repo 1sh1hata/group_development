@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sendai\\Desktop\\Team1App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7FB9EA-4E74-4FFC-BD07-C6E3E6BE57D9}|Login\\Login.vcxproj|C:\\Users\\sendai\\Desktop\\Team1App\\Login\\insert.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3B7FB9EA-4E74-4FFC-BD07-C6E3E6BE57D9}|Login\\Login.vcxproj|solutionrelative:Login\\insert.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7FB9EA-4E74-4FFC-BD07-C6E3E6BE57D9}|Login\\Login.vcxproj|C:\\Users\\sendai\\Desktop\\Team1App\\Login\\insert.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form",
+      "RelativeMoniker": "D:0:0:{3B7FB9EA-4E74-4FFC-BD07-C6E3E6BE57D9}|Login\\Login.vcxproj|solutionrelative:Login\\insert.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "insert.h",
+              "DocumentMoniker": "C:\\Users\\sendai\\Desktop\\Team1App\\Login\\insert.h",
+              "RelativeDocumentMoniker": "Login\\insert.h",
+              "ToolTip": "C:\\Users\\sendai\\Desktop\\Team1App\\Login\\insert.h",
+              "RelativeToolTip": "Login\\insert.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAwBUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-28T00:47:20.428Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "insert.h [\u30C7\u30B6\u30A4\u30F3]",
+              "DocumentMoniker": "C:\\Users\\sendai\\Desktop\\Team1App\\Login\\insert.h",
+              "RelativeDocumentMoniker": "Login\\insert.h",
+              "ToolTip": "C:\\Users\\sendai\\Desktop\\Team1App\\Login\\insert.h [\u30C7\u30B6\u30A4\u30F3]",
+              "RelativeToolTip": "Login\\insert.h [\u30C7\u30B6\u30A4\u30F3]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-28T00:55:34.045Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
