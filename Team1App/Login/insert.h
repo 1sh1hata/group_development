@@ -509,7 +509,7 @@ namespace Login {
 
 int GetNextId(String^ filePath)
 {
-	int lastId;
+	int lastId = 0;
 	try {
 		StreamReader^ reader = gcnew StreamReader(filePath);
 		String^ lastLine = "";
