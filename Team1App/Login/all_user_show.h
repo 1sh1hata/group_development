@@ -71,6 +71,7 @@ namespace Login {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
@@ -93,8 +94,7 @@ namespace Login {
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToResizeColumns = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
-			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
-			this->dataGridView1->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedHeaders;
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::White;
 			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -102,12 +102,21 @@ namespace Login {
 				this->Column1,
 					this->Column2
 			});
-			this->dataGridView1->Location = System::Drawing::Point(37, 269);
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle1;
+			this->dataGridView1->Location = System::Drawing::Point(36, 269);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 21;
-			this->dataGridView1->Size = System::Drawing::Size(341, 188);
+			this->dataGridView1->Size = System::Drawing::Size(673, 188);
 			this->dataGridView1->TabIndex = 9;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &all_user_show::dataGridView1_CellContentClick);
 			// 
@@ -132,7 +141,6 @@ namespace Login {
 			this->Column2->HeaderText = L"タイトル";
 			this->Column2->MinimumWidth = 6;
 			this->Column2->Name = L"Column2";
-			this->Column2->Width = 80;
 			// 
 			// button1
 			// 
@@ -140,7 +148,7 @@ namespace Login {
 				static_cast<System::Byte>(128)));
 			this->button1->Location = System::Drawing::Point(571, 203);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(122, 41);
+			this->button1->Size = System::Drawing::Size(146, 45);
 			this->button1->TabIndex = 17;
 			this->button1->Text = L"新規登録";
 			this->button1->UseVisualStyleBackColor = true;
@@ -149,36 +157,36 @@ namespace Login {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label4->Location = System::Drawing::Point(33, 118);
+			this->label4->Location = System::Drawing::Point(138, 119);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(124, 13);
+			this->label4->Size = System::Drawing::Size(166, 18);
 			this->label4->TabIndex = 16;
 			this->label4->Text = L"↓↓あいまい検索欄";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
 			this->label3->Location = System::Drawing::Point(28, 208);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(55, 15);
+			this->label3->Size = System::Drawing::Size(65, 18);
 			this->label3->TabIndex = 15;
 			this->label3->Text = L"タイトル";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
 			this->label2->Location = System::Drawing::Point(32, 160);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(23, 15);
+			this->label2->Size = System::Drawing::Size(26, 18);
 			this->label2->TabIndex = 14;
 			this->label2->Text = L"ID";
 			// 
@@ -199,10 +207,10 @@ namespace Login {
 			// 
 			this->SearchButton->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(128)));
-			this->SearchButton->Location = System::Drawing::Point(350, 203);
+			this->SearchButton->Location = System::Drawing::Point(370, 203);
 			this->SearchButton->Margin = System::Windows::Forms::Padding(4);
 			this->SearchButton->Name = L"SearchButton";
-			this->SearchButton->Size = System::Drawing::Size(123, 41);
+			this->SearchButton->Size = System::Drawing::Size(147, 45);
 			this->SearchButton->TabIndex = 12;
 			this->SearchButton->Text = L"検索";
 			this->SearchButton->UseVisualStyleBackColor = true;
@@ -210,18 +218,22 @@ namespace Login {
 			// 
 			// St_dayTextBox
 			// 
+			this->St_dayTextBox->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
 			this->St_dayTextBox->Location = System::Drawing::Point(131, 203);
 			this->St_dayTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->St_dayTextBox->Name = L"St_dayTextBox";
-			this->St_dayTextBox->Size = System::Drawing::Size(191, 22);
+			this->St_dayTextBox->Size = System::Drawing::Size(191, 25);
 			this->St_dayTextBox->TabIndex = 11;
 			// 
 			// TitleTextBox
 			// 
+			this->TitleTextBox->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
 			this->TitleTextBox->Location = System::Drawing::Point(131, 160);
 			this->TitleTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->TitleTextBox->Name = L"TitleTextBox";
-			this->TitleTextBox->Size = System::Drawing::Size(191, 22);
+			this->TitleTextBox->Size = System::Drawing::Size(191, 25);
 			this->TitleTextBox->TabIndex = 10;
 			// 
 			// logout
