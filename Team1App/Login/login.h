@@ -207,48 +207,58 @@ private: System::Void clean_TextBox() {
 private: System::Boolean login_Check() {
 	String^ userName = textBox_name->Text;
 	String^ password = textBox_password->Text;
+	StreamReader^ sr;
+	bool sFrg = false;
+	try {
+		//CSV読み取り
+		String^ path = ".\\users.csv";
+		sr = gcnew StreamReader(path, Encoding::UTF8);
+		String^ line;
 
-	//CSV読み取り
-	String^ path = ".\\users.csv";
-	StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
-	String^ line;
+		//照合
+		while ((line = sr->ReadLine()) != nullptr) {
+			array<String^>^ parts = line->Split(',');
+			if (parts[1] == userName && parts[2] == password) {
+				//ログイン成功フラグ
+				return true;
+			}
+			else {
 
-	//照合
-	while ((line = sr->ReadLine()) != nullptr) {
-		array<String^>^ parts = line->Split(',');
-		if (parts[1] == userName && parts[2] == password) {
-			//ログイン成功フラグ
-			return true;
+			}
+		}
+		//ログイン失敗フラグ
+		return false;
+	}
+	catch(Exception^ e){
+		MessageBox::Show("CSVファイルが読み込めません" + "\n" + "ユーザー情報を取得できませんでした");
+	}
+	finally {
+		if (sFrg == true) {
+			sr->Close();
+			sFrg = false;
 		}
 		else {
-
+		
 		}
 	}
-	//ログイン失敗フラグ
 	return false;
 }
 private: System::Void button_login_Click(System::Object^ sender, System::EventArgs^ e) {
 	//5月27日更新　　エラーメッセージを追加
 	//ifとelseifで、空欄がないかチェック。空欄があればエラーメッセージ表示＋ユーザー認証は行わない
-	if (textBox_name->Text == "" && textBox_password->Text == "") {
-		MessageBox::Show("パスワードとユーザー名を入力してください", "ログイン失敗", MessageBoxButtons::OK);
-	}
-	else if (textBox_name->Text == "") {
+	if (textBox_name->Text == "") {
 		MessageBox::Show("ユーザー名を入力してください", "ログイン失敗", MessageBoxButtons::OK);
 	}
-	else if (textBox_password->Text == "") {
+	if (textBox_password->Text == "") {
 		MessageBox::Show("パスワードを入力してください", "ログイン失敗", MessageBoxButtons::OK);
 	}
+	if (login_Check()) {
+		MessageBox::Show("ログインに成功しました", "ログイン成功", MessageBoxButtons::OK);
+		all_user_show^ nextPage = gcnew all_user_show();
+		nextPage->ShowDialog();
+	}
 	else {
-		if (login_Check()) {
-			MessageBox::Show("ログインに成功しました", "ログイン成功", MessageBoxButtons::OK);
-			//結合時、一覧表示画面への遷移処理に変更する
-			all_user_show^ nextPage = gcnew all_user_show();
-			nextPage->ShowDialog();
-		}
-		else {
-			MessageBox::Show("ユーザー名もしくはパスワードが違います", "ログイン失敗", MessageBoxButtons::OK);
-		}
+		MessageBox::Show("ユーザー名もしくはパスワードが違います", "ログイン失敗", MessageBoxButtons::OK);
 	}
 }
 private: System::Void button_cancel_Click(System::Object^ sender, System::EventArgs^ e) {

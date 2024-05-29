@@ -45,6 +45,8 @@ namespace Login {
 			{
 				delete components;
 			}
+			else {
+			}
 		}
 	private: System::Windows::Forms::ComboBox^ TimePicker2;
 	protected:
@@ -131,11 +133,22 @@ namespace Login {
 			// 
 			// TimePicker2
 			// 
+			this->TimePicker2->FormatString = L"t";
+			for (int i = 0; i < 24; i++)
+			{
+				for (int j = 0; j < 60; j += 1)
+				{
+					this->TimePicker2->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
+				}
+			}
 			this->TimePicker2->FormattingEnabled = true;
+			this->TimePicker2->ImeMode = System::Windows::Forms::ImeMode::Alpha;
 			this->TimePicker2->Location = System::Drawing::Point(507, 282);
+			this->TimePicker2->MaxLength = 5;
 			this->TimePicker2->Name = L"TimePicker2";
 			this->TimePicker2->Size = System::Drawing::Size(178, 23);
 			this->TimePicker2->TabIndex = 95;
+			this->TimePicker2->DropDownStyle = ComboBoxStyle::DropDownList;
 			// 
 			// Column1
 			// 
@@ -146,11 +159,22 @@ namespace Login {
 			// 
 			// TimePicker1
 			// 
+			this->TimePicker1->FormatString = L"t";
+			for (int i = 0; i < 24; i++)
+			{
+				for (int j = 0; j < 60; j += 1)
+				{
+					this->TimePicker1->Items->Add(String::Format("{0:D2}:{1:D2}", i, j));
+				}
+			}
 			this->TimePicker1->FormattingEnabled = true;
+			this->TimePicker1->ImeMode = System::Windows::Forms::ImeMode::Alpha;
 			this->TimePicker1->Location = System::Drawing::Point(507, 234);
+			this->TimePicker1->MaxLength = 5;
 			this->TimePicker1->Name = L"TimePicker1";
 			this->TimePicker1->Size = System::Drawing::Size(178, 23);
 			this->TimePicker1->TabIndex = 95;
+			this->TimePicker1->DropDownStyle = ComboBoxStyle::DropDownList;
 			// 
 			// datePicker2
 			// 
@@ -505,47 +529,58 @@ namespace Login {
 #pragma endregion
 		//クラスの変数宣言
 	public: String^ keyVal;
-	private: int addNum = 0;
-
+	private:int addNum = 0;
+			bool sFrg = false;
+			
 		   void AddToCSV(array<String^>^ texts)
 		   {
 			   //追加するCSVのパス
 			   String^ path = ".\\schedule.csv";
-			   StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+			   StreamReader^ sr;
 			   List<String^>^ bdArr = gcnew List<String^>;
 			   try {
+				   sr = gcnew StreamReader(path, Encoding::UTF8);
 				   //headerを飛ばす
 				   bdArr->Add(sr->ReadLine());
-				   while (sr->Peek() > 0) {//読み取り文字がある間は回し続ける
-					   String^ line = sr->ReadLine();  //一行ずつ読み取り
-					   cli::array<String^>^ arr = line->Split(','); //読み取った文字列を、,　部分で分割
+				   while (sr->Peek() > 0) {
+					   String^ line = sr->ReadLine();  
+					   cli::array<String^>^ arr = line->Split(','); 
 					   if (arr[0] == "END") {
 						   bdArr->Add(line);
 						   break;
 					   }
+					   else {
+					   }
 					   //keyとなる値から検索
-					   if (arr[0] == keyVal) {  //行の１番目（ID）が、渡されたKeyと一緒の場合
-						   String^ afLine = ""; //空の文字列
-						   String^ sep = ",";  //コンマ
+					   if (arr[0] == keyVal) {  
+						   String^ afLine = ""; 
+						   String^ sep = ",";
 						   for (int j = 0; j < 9; j++) {
-							   afLine += texts[j] + sep;  //本来であれば、空の文字列に合致する1行+コンマを、項目ごとに代入していた
+							   afLine += texts[j] + sep;  
 						   }
-						   bdArr->Add(afLine);  //リストに、afLineをいれる。合致した場合は
+						   bdArr->Add(afLine);  
 					   }
 					   else {
-						   bdArr->Add(line);  //そうでない場合は、読み取った１行を、丸ごと入れる
+						   bdArr->Add(line); 
 					   }
 				   }
+				   sFrg = true;
 			   }
 			   catch (Exception^ e) {
-				   MessageBox::Show(e->ToString());
+				   MessageBox::Show("CSVファイルが読み込めません" + "\n" + "更新に失敗しました");
 			   }
 			   finally {
-				   sr->Close();
+				   if (sFrg == true) {
+					   sr->Close();
+					   sFrg = false;
+				   }
+				   else {
+				   }
 			   }
+			   StreamWriter^ sw;
 			   try {
+				   sw = gcnew StreamWriter(".\\schedule.csv", false, Encoding::UTF8);
 				   //CSVを追記モードで開く
-				   StreamWriter^ sw = gcnew StreamWriter(path, false, Encoding::UTF8);
 				   //テキストをファイルに書き込む
 				   for (int i = 0; i < bdArr->Count; i++) {
 					   String^ sep = "\n";
@@ -568,8 +603,8 @@ namespace Login {
 		array<String^>^ inputTexts = gcnew array<String^>(9);
 		inputTexts[0] = textBox1->Text;
 		inputTexts[1] = textBox2->Text;
-		inputTexts[2] = datePicker1->Value.ToString("yyyy/MM/dd") + " " + TimePicker1->Text; // 開始日時
-		inputTexts[3] = datePicker2->Value.ToString("yyyy/MM/dd") + " " + TimePicker2->Text; // 終了日時
+		inputTexts[2] = datePicker1->Value.ToString("yyyy/MM/dd") + "/" + TimePicker1->Text; // 開始日時
+		inputTexts[3] = datePicker2->Value.ToString("yyyy/MM/dd") +"/" + TimePicker2->Text; // 終了日時
 		inputTexts[4] = textBox5->Text;
 		inputTexts[5] = textBox6->Text;
 		inputTexts[6] = textBox7->Text;
@@ -583,16 +618,21 @@ namespace Login {
 				/*textBox" + (i + 1) + "が未入力です。*/
 				return;
 			}
+			else {
+			}
 		}
 		if(String::IsNullOrEmpty(TimePicker1->Text)) {
 			MessageBox::Show("未入力項目があります。");
 			return;
 		}
+		else {
+		}
 		if (String::IsNullOrEmpty(TimePicker2->Text)) {
 			MessageBox::Show("未入力項目があります。");
 			return;
 		}
-
+		else {
+		}
 
 		if (System::Windows::Forms::DialogResult::Yes == MessageBox::Show("本当に更新しますか？", "確認", MessageBoxButtons::YesNo)) {
 
@@ -622,11 +662,12 @@ namespace Login {
 
 	private: System::Void edit_Load(System::Object ^ sender, System::EventArgs ^ e) {
 		String^ path = ".\\schedule.csv";
-		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+		StreamReader^ sr;
 		List<String^>^ keyList = gcnew List<String^>;
 		String^ n = "";
 		//------エラー処理-------
 		try {
+			sr =gcnew StreamReader(path, Encoding::UTF8);
 			//headerを飛ばす
 			sr->ReadLine();
 			while (sr->Peek() > 0) {
@@ -650,17 +691,28 @@ namespace Login {
 							}
 						}
 					}
+					else {
+					}
+				}
+				else {
 				}
 			}
+			sFrg = true;
 		}
 		catch (Exception^ e) {
-			MessageBox::Show(e->ToString());
+			MessageBox::Show("CSVファイルが読み込めません");
 		}
 		finally {
-			sr->Close();
+			if (sFrg == true) {
+				sr->Close();
+				sFrg = false;
+			}
+			else {
+
+			}
 		}
 		for (int i = 0; i < keyList->Count; i++) {
-
+			
 			// TextBox1からTextBox8に値を設定
 			if (i < 8) {
 				Control^ c = this->Controls["textBox" + (i + 1).ToString()];
@@ -669,10 +721,24 @@ namespace Login {
 					if (tb != nullptr) {
 						tb->Text = keyList[i];
 					}
+					else {
+					}
+				}
+				else {
 				}
 			}
+			else {
+			}
 		}
+		cli:array<String^>^ dateTime = keyList[2]->Split('/');
+		datePicker1->Text = dateTime[0] + "/" + dateTime[1] + "/" + dateTime[2];
+		TimePicker1->Text = dateTime[3];
+
+		dateTime = keyList[3]->Split('/');
+		datePicker2->Text = dateTime[0] + "/" + dateTime[1] + "/" + dateTime[2];
+		TimePicker2->Text = dateTime[3];
+
 		return System::Void();
 	}
-	};
+};
 }

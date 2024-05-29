@@ -45,6 +45,8 @@ namespace Login {
 			{
 				delete components;
 			}
+			else {
+			}
 		}
 	private: System::Windows::Forms::Button^ button_back;
 	protected:
@@ -54,7 +56,7 @@ namespace Login {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label4;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -102,7 +104,6 @@ namespace Login {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -187,16 +188,6 @@ namespace Login {
 			this->label5->Size = System::Drawing::Size(15, 15);
 			this->label5->TabIndex = 45;
 			this->label5->Text = L"：";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label4->Location = System::Drawing::Point(0, 0);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(15, 15);
-			this->label4->TabIndex = 44;
-			this->label4->Text = L"：";
 			// 
 			// label3
 			// 
@@ -483,7 +474,6 @@ namespace Login {
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -505,6 +495,7 @@ namespace Login {
 			this->Controls->Add(this->title);
 			this->Name = L"detail";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"スケジュール詳細";
 			this->Activated += gcnew System::EventHandler(this, &detail::detail_Activated);
 			this->Load += gcnew System::EventHandler(this, &detail::detail_Load);
 			this->ResumeLayout(false);
@@ -514,14 +505,16 @@ namespace Login {
 #pragma endregion
 	private: String^ keyVal;
 	private: int addNum = 0;
+	private: bool sFrg = false;
 
 	private: System::Void detail_Load(System::Object^ sender, System::EventArgs^ e) {
 		String^ path = ".\\schedule.csv";
-		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+		StreamReader^ sr;
 		List<String^>^ keyList = gcnew List<String^>;
 		String^ n = "";
 		//------エラー処理-------
 		try {
+			sr = gcnew StreamReader(path, Encoding::UTF8);
 			//headerを飛ばす
 			sr->ReadLine();
 			while (sr->Peek() > 0) {
@@ -545,14 +538,24 @@ namespace Login {
 							}
 						}
 					}
+					else {
+					}
+				}
+				else {
 				}
 			}
+			sFrg = true;
 		}
 		catch (Exception^ e) {
-			MessageBox::Show(e->ToString());
+			MessageBox::Show("CSVファイルが読み込めません");
 		}
 		finally {
-			sr->Close();
+			if (sFrg == true) {
+				sr->Close();
+				sFrg = false;
+			}
+			else {
+			}
 		}
 		for (int i = 0; i < keyList->Count; i++) {
 
@@ -565,6 +568,8 @@ namespace Login {
 						tb->Text = keyList[i];
 					}
 				}
+			}
+			else {
 			}
 		}
 		return System::Void();
@@ -595,6 +600,8 @@ namespace Login {
 private: System::Void detail_Activated(System::Object^ sender, System::EventArgs^ e) {
 	if (logout::canLogout == true) {
 		this->Close();
+	}
+	else {
 	}
 }
 };

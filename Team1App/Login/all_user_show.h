@@ -38,6 +38,8 @@ namespace Login {
 			{
 				delete components;
 			}
+			else {
+			}
 		}
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	protected:
@@ -254,7 +256,7 @@ namespace Login {
 			this->Controls->Add(this->TitleTextBox);
 			this->Name = L"all_user_show";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"all_user_show";
+			this->Text = L"スケジュール一覧";
 			this->Activated += gcnew System::EventHandler(this, &all_user_show::all_user_show_Activated);
 			this->Load += gcnew System::EventHandler(this, &all_user_show::all_user_show_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -263,16 +265,21 @@ namespace Login {
 
 		}
 #pragma endregion
-	detail^ detailForm;
-	insert^ insertForm;
+	
+	private:detail^ detailForm;
+			insert^ insertForm;
+			bool sFrg = false;
+			int itemCount = 0;
 
 	private: System::Void all_user_show_Load(System::Object^ sender, System::EventArgs^ e) {
 		String^ path = ".\\schedule.csv";
-		StreamReader^ sr = gcnew StreamReader(path, Encoding::UTF8);
+		StreamReader^ sr;
 		List<String^>^ titleList = gcnew List<String^>;
 		List<String^>^ secondColumnList = gcnew List<String^>;
 		String^ n = "";
+
 		try {
+			sr =  gcnew StreamReader(path, Encoding::UTF8);
 			//headerを飛ばす
 			sr->ReadLine();
 			while (sr->Peek() > 0) {
@@ -284,12 +291,19 @@ namespace Login {
 				//2列目の値を取得
 				secondColumnList->Add(arr[1]);
 			}
+			sFrg = true;
 		}
 		catch (Exception^ e) {
-			MessageBox::Show(e->ToString());
+			MessageBox::Show("CSVファイルが読み込めません");
 		}
 		finally {
-			sr->Close();
+			if (sFrg == true) {
+				sr->Close();
+				sFrg = false;
+			}
+			else {
+
+			}
 		}
 		for (int i = 0; i < titleList->Count; i++) {
 			dataGridView1->Rows->Add();
@@ -310,12 +324,11 @@ namespace Login {
 
 		// CSVファイルを開く
 		StreamReader^ sr;
-		int count = 0;
+
 		try {
 			sr = gcnew StreamReader(".\\schedule.csv", Encoding::UTF8);
 			//headerを飛ばす
 			sr->ReadLine();
-
 			int rowIndex = 0;
 			while (sr->Peek() > 0) {
 				String^ line = sr->ReadLine();
@@ -323,49 +336,62 @@ namespace Login {
 				if (arr[0] == "END") {
 					break;
 				}
-
+				else {
+				}
 				if (titleSearch == "" && stDaySearch == "") {
 					// 全ての行を一旦削除
-					count = 1;
+					itemCount = 1;
 					dataGridView1->Rows->Clear();
 					all_user_show_Load(sender, e);
 				}
-
 				else if ((titleSearch == "" || arr[0]->Contains(titleSearch)) && (stDaySearch == "" || arr[1]->Contains(stDaySearch))) {
 					// 必要な行が存在しない場合は追加
 					if (rowIndex >= dataGridView1->Rows->Count) {
 						dataGridView1->Rows->Add();
 					}
+					else {
+					}
 					dataGridView1->Rows[rowIndex]->Cells[0]->Value = arr[0];
 					dataGridView1->Rows[rowIndex]->Cells[1]->Value = arr[1];
 					rowIndex++;
-					count++;
+					itemCount++;
+				}
+				else {
 				}
 			}
-			if (count == 0) {
+			if (itemCount == 0) {
 				MessageBox::Show("該当項目がありません");
 			}
+			else {
+			}
+			sFrg = true;
 		}
 		catch (Exception^ e) {
 			MessageBox::Show("CSVファイルが読み込めません");
 		}
 		finally {
-			sr->Close();
+			if (sFrg == true) {
+				sr->Close();
+				sFrg = false;
+			}
+			else {
+			}
 		}
 		dataGridView1->Refresh();
 	}
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		insertForm = gcnew insert();
-		insertForm->ShowDialog();
-		dataGridView1->Rows->Clear();
-		all_user_show_Load(sender, e);
-		return System::Void();
-	}
+			insertForm = gcnew insert();
+			insertForm->ShowDialog();
+			dataGridView1->Rows->Clear();
+			all_user_show_Load(sender, e);
+			return System::Void();
 
+	}
 
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		String^ key;
+		if (dataGridView1->RowCount > 0) {
 		for each (DataGridViewCell ^ c in dataGridView1->SelectedCells)
 		{
 			key = dataGridView1->Rows[c->RowIndex]->Cells[0]->Value->ToString();
@@ -375,6 +401,9 @@ namespace Login {
 		detailForm->ShowDialog();
 		dataGridView1->Rows->Clear();
 		all_user_show_Load(sender, e);
+	}
+		else {
+		}
 		return System::Void();
 	}
 
@@ -394,7 +423,8 @@ namespace Login {
 			logout::canLogout = false;
 			this->Close();
 		}
-		else {}
+		else {
+		}
 
 	}
 	private: System::Void all_user_show_Activated(System::Object^ sender, System::EventArgs^ e) {
@@ -403,7 +433,8 @@ namespace Login {
 			logout::canLogout = false;
 			this->Close();
 		}
-		else {}
+		else {
+		}
 	}
 	};
 }

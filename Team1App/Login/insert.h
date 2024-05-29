@@ -34,6 +34,8 @@ namespace Login {
 			{
 				delete components;
 			}
+			else {
+			}
 		}
 	private: System::Windows::Forms::ComboBox^ timePicker2;
 	protected:
@@ -126,6 +128,7 @@ namespace Login {
 			this->timePicker2->Name = L"timePicker2";
 			this->timePicker2->Size = System::Drawing::Size(156, 23);
 			this->timePicker2->TabIndex = 23;
+			this->timePicker2->DropDownStyle = ComboBoxStyle::DropDownList;
 			// 
 			// timePicker1
 			// 
@@ -141,6 +144,8 @@ namespace Login {
 			this->timePicker1->Name = L"timePicker1";
 			this->timePicker1->Size = System::Drawing::Size(156, 23);
 			this->timePicker1->TabIndex = 95;
+			this->timePicker1->DropDownStyle = ComboBoxStyle::DropDownList;
+
 			// 
 			// datePicker2
 			// 
@@ -474,32 +479,33 @@ namespace Login {
 			this->Controls->Add(this->textBox1);
 			this->Name = L"insert";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"insert";
+			this->Text = L"スケジュール新規登録";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
+	private: bool sFrg = false;
 //テキストボックスに入力された内容をCSVに追加する関数
-void AddToCSV(array<String^>^ texts)
-{
-	//追加するCSVのパス
-	String^ filePath = ".\\schedule.csv";
-	try {
-		//CSVを追記モードで開く
-		StreamWriter^ writer = gcnew StreamWriter(filePath, true);
-		//テキストをファイルに書き込む
-		writer->WriteLine(String::Join(",", texts));
-		//ファイルを閉じる
-		writer->Close();
-	}
-	catch (Exception^ e)
-	{
-		//エラー処理
-		Console::WriteLine("エラー：" + e->Message);
-	}
-}
+		void AddToCSV(array<String^>^ texts)
+		{
+			//追加するCSVのパス
+			String^ filePath = ".\\schedule.csv";
+			try {
+				//CSVを追記モードで開く
+				StreamWriter^ writer = gcnew StreamWriter(filePath, true);
+				//テキストをファイルに書き込む
+				writer->WriteLine(String::Join(",", texts));
+				//ファイルを閉じる
+				writer->Close();
+			}
+			catch (Exception^ e)
+			{
+				//エラー処理
+				MessageBox::Show("CSVファイルが読み込めません");
+			}
+		}
 
 int GetNextId(String^ filePath)
 {
@@ -520,7 +526,7 @@ int GetNextId(String^ filePath)
 	}
 	catch (Exception^ e)
 	{
-		Console::WriteLine("エラー：" + e->Message);
+		MessageBox::Show("CSVファイルが読み込めません");
 	}
 	return lastId + 1;
 }
@@ -533,8 +539,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ filePath = ".\\schedule.csv";
 	inputTexts[0] = GetNextId(filePath).ToString(); // 0番目にはCSVファイルの最後の行の1列目の値より1大きい数字を設定
 	inputTexts[1] = textBox2->Text;
-	inputTexts[2] = datePicker1->Value.ToString("yyyy/MM/dd") + " " + timePicker1->Text; // 開始日時
-	inputTexts[3] = datePicker2->Value.ToString("yyyy/MM/dd") + " " + timePicker2->Text; // 終了日時
+	inputTexts[2] = datePicker1->Value.ToString("yyyy/MM/dd") + "/" + timePicker1->Text; // 開始日時
+	inputTexts[3] = datePicker2->Value.ToString("yyyy/MM/dd") + "/" + timePicker2->Text; // 終了日時
 	inputTexts[4] = textBox3->Text;
 	inputTexts[5] = textBox4->Text;
 	inputTexts[6] = textBox5->Text;
